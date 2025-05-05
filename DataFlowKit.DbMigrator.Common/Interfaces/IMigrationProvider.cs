@@ -10,6 +10,7 @@ namespace DataFlowKit.DbMigrator.Common.Interfaces
         Task ApplyMigrationsAsync(IEnumerable<MigrationScript> scripts);
         Task UpdateMigrationRecordsAsync(IEnumerable<MigrationScript> scripts);
         Task AddMigrationAsync(string migrationName, string environmentName, bool isSeed, string? folderPath = null);
+        Task GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO");
     }
 
 }

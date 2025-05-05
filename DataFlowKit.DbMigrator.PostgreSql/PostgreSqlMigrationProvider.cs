@@ -131,6 +131,11 @@ namespace DataFlowKit.DbMigrator.PostgreSql.Providers
                 await File.WriteAllTextAsync(fullPath, string.Empty);
             }
         }
+
+        public async Task GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO")
+        {
+
+        }
     }
 
 

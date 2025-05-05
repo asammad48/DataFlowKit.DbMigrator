@@ -93,7 +93,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
                 }
                 else
                 {
-                    command.Parameters.AddWithValue(param.ParameterName, GetDummyValue(param));
+                    command.Parameters.AddWithValue(param.ParameterName, TypesConverterSql.GetDummyValue(param));
                 }
             }
             foreach (var param in parameters.Where(p => p.IsOutput))
@@ -102,7 +102,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
                 {
                     ParameterName = param.ParameterName,
                     Direction = ParameterDirection.Output,
-                    SqlDbType = GetSqlDbType(param.ParameterType)
+                    SqlDbType = TypesConverterSql.GetSqlDbType(param.ParameterType)
                 });
             }
 
@@ -139,8 +139,6 @@ namespace DataFlowKit.DbMigrator.SqlServer
             return resultSets;
         }
 
-
-
         private List<ColumnInfo> GetTVPSchema(string tvpTypeName)
         {
             using var connection = new SqlConnection(_connectionString);
@@ -157,61 +155,6 @@ namespace DataFlowKit.DbMigrator.SqlServer
             WHERE tt.name = @TvpTypeName
             ORDER BY c.column_id",
                 new { TvpTypeName = tvpTypeName }).ToList();
-        }
-
-        private object GetDummyValue(ParameterInfo param)
-        {
-            if (param.IsNullable) return DBNull.Value;
-
-            return param.ParameterType.ToLower() switch
-            {
-                "int" => 0,
-                "bigint" => 0L,
-                "smallint" => (short)0,
-                "tinyint" => (byte)0,
-                "bit" => false,
-                "datetime" => DateTime.MinValue,
-                "date" => DateTime.MinValue,
-                "time" => TimeSpan.Zero,
-                "decimal" => 0m,
-                "numeric" => 0m,
-                "float" => 0.0,
-                "real" => 0.0f,
-                "money" => 0m,
-                "uniqueidentifier" => Guid.Empty,
-                _ => DBNull.Value
-            };
-        }
-
-        private SqlDbType GetSqlDbType(string sqlType)
-        {
-            return sqlType.ToLower() switch
-            {
-                "int" => SqlDbType.Int,
-                "bigint" => SqlDbType.BigInt,
-                "smallint" => SqlDbType.SmallInt,
-                "tinyint" => SqlDbType.TinyInt,
-                "bit" => SqlDbType.Bit,
-                "datetime" => SqlDbType.DateTime,
-                "date" => SqlDbType.Date,
-                "time" => SqlDbType.Time,
-                "decimal" => SqlDbType.Decimal,
-                "numeric" => SqlDbType.Decimal,
-                "float" => SqlDbType.Float,
-                "real" => SqlDbType.Real,
-                "money" => SqlDbType.Money,
-                "uniqueidentifier" => SqlDbType.UniqueIdentifier,
-                "varchar" => SqlDbType.VarChar,
-                "nvarchar" => SqlDbType.NVarChar,
-                "char" => SqlDbType.Char,
-                "nchar" => SqlDbType.NChar,
-                "text" => SqlDbType.Text,
-                "ntext" => SqlDbType.NText,
-                "binary" => SqlDbType.Binary,
-                "varbinary" => SqlDbType.VarBinary,
-                "image" => SqlDbType.Image,
-                _ => SqlDbType.Variant
-            };
         }
 
         private string GenerateClassFile(string storedProcName,
