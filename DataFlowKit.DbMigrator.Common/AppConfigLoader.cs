@@ -1,10 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Reflection;
+﻿using DataFlowKit.DbMigrator.Common.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DataFlowKit.DbMigrator.Common
 {
-
-
     public static class AppConfigLoader
     {
         public static IConfigurationRoot Load(bool isCliProject = false)
@@ -18,73 +16,15 @@ namespace DataFlowKit.DbMigrator.Common
 
         private static string ResolveBasePath(bool isCliProject)
         {
-            //// Stage 1: Check current directory first (works for published apps and debug)
-            //var currentDir = Directory.GetCurrentDirectory();
-            //if (File.Exists(Path.Combine(currentDir, "appsettings.json")))
-            //{
-            //    return currentDir;
-            //}
-
-            //// Stage 2: For CLI context, try MSBuild (only if needed)
-            //if (isCliProject)
-            //{
-            //    try
-            //    {
-            //        // Load MSBuild assemblies explicitly with binding redirect
-            //        AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-
-            //        var projectPath = Microsoft.Build.Evaluation.ProjectCollection.GlobalProjectCollection
-            //            .LoadedProjects.FirstOrDefault()?.FullPath;
-
-            //        if (projectPath != null)
-            //        {
-            //            var projectDir1 = Path.GetDirectoryName(projectPath);
-            //            if (File.Exists(Path.Combine(projectDir1, "appsettings.json")))
-            //            {
-            //                return projectDir1;
-            //            }
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        // Continue if MSBuild fails
-            //    }
-            //    finally
-            //    {
-            //        AppDomain.CurrentDomain.AssemblyResolve -= CurrentDomain_AssemblyResolve;
-            //    }
-            //}
-
-            //// Stage 3: Assembly-based traversal
-            //var assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            //var projectDir = TraverseUpForProjectDir(assemblyDir);
-            //if (projectDir != null && File.Exists(Path.Combine(projectDir, "appsettings.json")))
-            //{
-            //    return projectDir;
-            //}
-
-            //throw new FileNotFoundException("Could not locate appsettings.json in any standard location");
-            return "";
-        }
-
-        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-        {
-            if (args.Name.StartsWith("Microsoft.Build"))
+            if (isCliProject)
             {
-                // Load the version we actually have
-                return Assembly.Load("Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+                return DirectorySearcher.FindStartupProject(CurrentCallInfo.StartupProject);
             }
-            return null;
-        }
-
-        private static string TraverseUpForProjectDir(string startDir)
-        {
-            var dir = new DirectoryInfo(startDir);
-            while (dir != null && !dir.GetFiles("*.csproj").Any())
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json")))
             {
-                dir = dir.Parent;
+                return Directory.GetCurrentDirectory();
             }
-            return dir?.FullName;
+            throw new FileNotFoundException($"appsettings.json not found at path: {Directory.GetCurrentDirectory()}");
         }
     }
 

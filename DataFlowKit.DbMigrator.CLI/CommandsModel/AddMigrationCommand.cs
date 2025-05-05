@@ -8,7 +8,7 @@ namespace DataFlowKit.DbMigrator.CLI.CommandsModel
         [Option('n', "name", Required = true, HelpText = "Name of the new migration.")]
         public string MigrationName { get; set; }
 
-        [Option('p', "path", Required = false, HelpText = "Path to save the migration script.")]
-        public string MigrationPath { get; set; }
+        [Option('o', "output-dir", Required = false, HelpText = "Path to save the migration script.")]
+        public string OutputDirectory { get; set; }
     }
 }
