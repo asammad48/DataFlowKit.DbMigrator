@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Reflection;
 
 namespace DataFlowKit.DbMigrator.Common
 {
@@ -43,7 +42,7 @@ namespace DataFlowKit.DbMigrator.Common
             return "sqlserver";
         }
 
-        public static string GetMigrationPath(string migrationPath, bool createDirectory=false)
+        public static string GetMigrationPath(string migrationPath, bool createDirectory = false)
         {
             if (!string.IsNullOrEmpty(migrationPath))
             {
@@ -62,7 +61,7 @@ namespace DataFlowKit.DbMigrator.Common
                     {
                         return folderDirectory;
                     }
-                    if(createDirectory)
+                    if (createDirectory)
                     {
                         Directory.CreateDirectory(folderDirectory);
                         return folderDirectory;
@@ -92,7 +91,7 @@ namespace DataFlowKit.DbMigrator.Common
                     {
                         return folderDirectory;
                     }
-                    if(createDirectory)
+                    if (createDirectory)
                     {
                         Directory.CreateDirectory(folderDirectory);
                         return folderDirectory;
@@ -142,7 +141,7 @@ namespace DataFlowKit.DbMigrator.Common
 
         public static string GetSpNamingConvention(string namingConvention)
         {
-            if(!string.IsNullOrEmpty(namingConvention))
+            if (!string.IsNullOrEmpty(namingConvention))
             {
                 return namingConvention;
             }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace DataFlowKit.DbMigrator.Common
+﻿namespace DataFlowKit.DbMigrator.Common
 {
     public static class PathUtils
     {

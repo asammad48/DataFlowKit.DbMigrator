@@ -1,6 +1,4 @@
 ﻿using DataFlowKit.DbMigrator.Common.Models;
-using System;
-using System.IO;
 
 namespace DataFlowKit.DbMigrator.Common
 {
