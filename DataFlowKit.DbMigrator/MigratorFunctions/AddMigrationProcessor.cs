@@ -8,23 +8,27 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
     {
         public static int AddMigration(AddMigration opts)
         {
-            CurrentCallInfo.ScriptName = RunningScriptType.AddMigration;
-            try
+            if (CurrentCallInfo.IsCallFromCLI)
             {
-                Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process started.");
-                opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
-                opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath);
-                opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
-                var provider = MigrationProviderFactory.Create(opts.Provider, "");
-                provider.AddMigrationAsync(opts.MigrationName, opts.Environment, opts.IsSeed, opts.MigrationPath).GetAwaiter().GetResult();
-                Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully.");
+                CurrentCallInfo.ScriptName = RunningScriptType.AddMigration;
+                try
+                {
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process started.");
+                    opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
+                    opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath);
+                    opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
+                    var provider = MigrationProviderFactory.Create(opts.Provider, "");
+                    provider.AddMigrationAsync(opts.MigrationName, opts.Environment, opts.IsSeed, opts.MigrationPath).GetAwaiter().GetResult();
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process failed. ErrorMessage : {ex.Message}");
+                    return 1;
+                }
+                return 0;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process failed. ErrorMessage : {ex.Message}");
-                return 1;
-            }
-            return 0;
+            throw new InvalidOperationException($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Operation not supported.");
         }
     }
 }

@@ -43,7 +43,7 @@ namespace DataFlowKit.DbMigrator.Common
             return "sqlserver";
         }
 
-        public static string GetMigrationPath(string migrationPath)
+        public static string GetMigrationPath(string migrationPath, bool createDirectory=false)
         {
             if (!string.IsNullOrEmpty(migrationPath))
             {
@@ -62,14 +62,18 @@ namespace DataFlowKit.DbMigrator.Common
                     {
                         return folderDirectory;
                     }
-                    Directory.CreateDirectory(folderDirectory);
-                    return folderDirectory;
+                    if(createDirectory)
+                    {
+                        Directory.CreateDirectory(folderDirectory);
+                        return folderDirectory;
+                    }
+                    throw new DirectoryNotFoundException($"Migration Directory not found at path {projectDirectory}");
                 }
                 throw new DirectoryNotFoundException($"Project Directory not found at path {projectDirectory}");
             }
         }
 
-        public static string GetStoredProcedureModelPath(string outputDirectory)
+        public static string GetStoredProcedureModelPath(string outputDirectory, bool createDirectory = false)
         {
             if (!string.IsNullOrEmpty(outputDirectory))
             {
@@ -88,8 +92,12 @@ namespace DataFlowKit.DbMigrator.Common
                     {
                         return folderDirectory;
                     }
-                    Directory.CreateDirectory(folderDirectory);
-                    return folderDirectory;
+                    if(createDirectory)
+                    {
+                        Directory.CreateDirectory(folderDirectory);
+                        return folderDirectory;
+                    }
+                    throw new DirectoryNotFoundException($"Entity Directory not found at path {projectDirectory}");
                 }
                 throw new DirectoryNotFoundException($"Project Directory not found at path {projectDirectory}");
             }

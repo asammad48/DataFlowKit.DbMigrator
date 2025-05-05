@@ -13,11 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DataFlowKit.DbMigrator.Common\DataFlowKit.DbMigrator.Common.csproj" />
-    <ProjectReference Include="..\DataFlowKit.DbMigrator\DataFlowKit.DbMigrator.csproj" />
+    <PackageReference Include="DataFlowKit.DbMigrator" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

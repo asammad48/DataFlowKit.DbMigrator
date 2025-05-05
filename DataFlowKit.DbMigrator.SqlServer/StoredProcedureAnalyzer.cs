@@ -25,10 +25,6 @@ namespace DataFlowKit.DbMigrator.SqlServer
             var resultSets = GetResultSetStructures(storedProcName, parameters);
             string relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
             var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder);
-            if (string.IsNullOrEmpty(outputPath))
-            {
-                outputPath = DirectorySearcher.FindOrCreateProjectFolder(DefaultValueProvider.GetSPProjectName(), DefaultValueProvider.GetSPFolderName());
-            }
             File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
         }
 

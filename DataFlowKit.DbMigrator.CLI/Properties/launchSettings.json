@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DataFlowKit.DbMigrator.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "add-migration --provider sqlserver --environment dev --name \"AddUserTable\" --path \"C:\\Migrations\""
+    }
+  }
+}
