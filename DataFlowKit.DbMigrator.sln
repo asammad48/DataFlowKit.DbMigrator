@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator", "DataFlowKit.DbMigrator\DataFlowKit.DbMigrator.csproj", "{FB834962-A84F-422C-BF63-E59F9904E41A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowKit.DbMigrator", "DataFlowKit.DbMigrator\DataFlowKit.DbMigrator.csproj", "{FB834962-A84F-422C-BF63-E59F9904E41A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator.Common", "DataFlowKit.DbMigrator.Common\DataFlowKit.DbMigrator.Common.csproj", "{CB68A33A-36E0-4F44-B0C8-566653DBDD92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowKit.DbMigrator.Common", "DataFlowKit.DbMigrator.Common\DataFlowKit.DbMigrator.Common.csproj", "{CB68A33A-36E0-4F44-B0C8-566653DBDD92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator.SqlServer", "DataFlowKit.DbMigrator.SqlServer\DataFlowKit.DbMigrator.SqlServer.csproj", "{C66AED30-4206-49B8-B88F-EE97D838C478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowKit.DbMigrator.SqlServer", "DataFlowKit.DbMigrator.SqlServer\DataFlowKit.DbMigrator.SqlServer.csproj", "{C66AED30-4206-49B8-B88F-EE97D838C478}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator.PostgreSql", "DataFlowKit.DbMigrator.PostgreSql\DataFlowKit.DbMigrator.PostgreSql.csproj", "{4D959BCF-EEB1-4153-AB86-80F7D2C0BA21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowKit.DbMigrator.PostgreSql", "DataFlowKit.DbMigrator.PostgreSql\DataFlowKit.DbMigrator.PostgreSql.csproj", "{4D959BCF-EEB1-4153-AB86-80F7D2C0BA21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator.CLI", "DataFlowKit.DbMigrator.CLI\DataFlowKit.DbMigrator.CLI.csproj", "{21F0F534-174D-4521-9994-044CBB44B5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowKit.DbMigrator.CLI", "DataFlowKit.DbMigrator.CLI\DataFlowKit.DbMigrator.CLI.csproj", "{21F0F534-174D-4521-9994-044CBB44B5B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A535A44D-6988-40CF-A526-BE237B2B10FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFlowKit.DbMigrator.Client", "DataFlowKit.DbMigrator.Client\DataFlowKit.DbMigrator.Client.csproj", "{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,16 @@ Global
 		{21F0F534-174D-4521-9994-044CBB44B5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21F0F534-174D-4521-9994-044CBB44B5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21F0F534-174D-4521-9994-044CBB44B5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{315EF19C-FAAC-4C2A-ADCA-CC87B4476D1A} = {A535A44D-6988-40CF-A526-BE237B2B10FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24C1DC68-BD3E-43A9-9D73-5ADB09F54A11}

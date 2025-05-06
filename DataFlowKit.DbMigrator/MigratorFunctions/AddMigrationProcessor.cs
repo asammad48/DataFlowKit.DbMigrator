@@ -15,7 +15,7 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                 {
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process started.");
                     opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
-                    opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath);
+                    opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath,true);
                     opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
                     var provider = MigrationProviderFactory.Create(opts.Provider, "");
                     provider.AddMigrationAsync(opts.MigrationName, opts.Environment, opts.IsSeed, opts.MigrationPath).GetAwaiter().GetResult();
@@ -23,7 +23,7 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process failed. ErrorMessage : {ex.Message}");
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process failed. ErrorMessage : {ex.Message}, Exception: {ex}");
                     return 1;
                 }
                 return 0;

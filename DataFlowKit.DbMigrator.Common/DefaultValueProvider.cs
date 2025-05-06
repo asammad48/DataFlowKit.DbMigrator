@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataFlowKit.DbMigrator.Common.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DataFlowKit.DbMigrator.Common
 {
@@ -9,7 +10,7 @@ namespace DataFlowKit.DbMigrator.Common
 
         static DefaultValueProvider()
         {
-            _configuration = AppConfigLoader.Load();
+            _configuration = AppConfigLoader.Load(CurrentCallInfo.IsCallFromCLI);
         }
 
         public static string GetConnectionString(string connectionString)
@@ -51,8 +52,12 @@ namespace DataFlowKit.DbMigrator.Common
             }
             else
             {
-                var projectName = GetMigrationProjectName();
-                var projectDirectory = Path.Combine(Directory.GetCurrentDirectory(), projectName);
+                var projectDirectory = Directory.GetCurrentDirectory();
+                if (CurrentCallInfo.IsCallFromCLI)
+                {
+                    var projectName = GetMigrationProjectName();
+                    projectDirectory = Path.Combine(Directory.GetCurrentDirectory(), projectName);
+                }
                 if (Directory.Exists(projectDirectory))
                 {
                     var folderName = GetMigrationFolderName();
