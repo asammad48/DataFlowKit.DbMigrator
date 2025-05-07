@@ -162,6 +162,18 @@ namespace DataFlowKit.DbMigrator.SqlServer
             }
         }
 
+        public async Task UpdateSingleMigrationRecordsAsync(string fileName, string gitHash)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            await connection.ExecuteAsync(
+                "INSERT INTO __MigrationHistory (FileName, AppliedOn, ScriptHash) VALUES (@FileName, GETDATE(), @ScriptHash)",
+                new { fileName, ScriptHash = gitHash });
+
+        }
+
+
         public async Task AddMigrationAsync(string migrationName, string environmentName, bool isSeed, string? folderPath = null)
         {
             try

@@ -63,6 +63,40 @@ namespace DataFlowKit.DbMigrator.Common
             return;
         }
 
+        public async Task RemoveMigrationAsync(string filePath)
+        {
+            await _provider.EnsureMigrationTableExistsAsync();
+            var appliedMigrations = await _provider.GetAppliedMigrationsAsync();
+            var appliedSet = new HashSet<string>(appliedMigrations.Select(m => m.FileName));
+            var fileName = Path.GetFileName(filePath);
+            var appliedScript = appliedSet.Contains(Path.GetFileName(fileName));
+            if (!appliedScript)
+            {
+                File.Delete(fileName);
+                Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Migration file deleted successfully.");
+                return;
+            }
+            Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Migration file is already applied. So it cannot be deleted.");
+            return;
+        }
+
+        public async Task MarkExistingMigrationAsAppliedAsync(string filePath)
+        {
+            await _provider.EnsureMigrationTableExistsAsync();
+            var appliedMigrations = await _provider.GetAppliedMigrationsAsync();
+            var appliedSet = new HashSet<string>(appliedMigrations.Select(m => m.FileName));
+            var fileName = Path.GetFileName(filePath);
+            var appliedScript = appliedSet.Contains(Path.GetFileName(fileName));
+            if (!appliedScript)
+            {
+                await _provider.UpdateSingleMigrationRecordsAsync(fileName, "");
+                Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Migration file {filePath} marked as applied.");
+                return;
+            }
+            Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Migration file is already marked as applied.");
+            return;
+        }
+
         private bool ShouldRunInEnvironment(MigrationScript script)
         {
             return script.Environments.Contains("All", StringComparer.OrdinalIgnoreCase)

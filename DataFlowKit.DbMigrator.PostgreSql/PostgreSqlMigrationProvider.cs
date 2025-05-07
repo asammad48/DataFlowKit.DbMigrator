@@ -136,8 +136,11 @@ namespace DataFlowKit.DbMigrator.PostgreSql.Providers
         {
 
         }
+
+        public async Task UpdateSingleMigrationRecordsAsync(string fileName, string gitHash)
+        {
+
+        }
     }
-
-
 }
 

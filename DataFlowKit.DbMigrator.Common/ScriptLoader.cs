@@ -86,5 +86,14 @@ namespace DataFlowKit.DbMigrator.Common
             process.WaitForExit();
             return process.StandardOutput.ReadToEnd().Trim();
         }
+
+        public static bool ValidateFilePath(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"Migration file not found: {filePath}");
+            }
+            return true;
+        }
     }
 }

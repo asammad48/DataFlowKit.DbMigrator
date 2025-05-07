@@ -9,7 +9,9 @@ return Parser.Default.ParseArguments<
     ValidateScriptCommand,
     AddMigrationCommand,
     UpdateDatabaseCommand,
-    GenerateStoredProcedureModelCommand
+    GenerateStoredProcedureModelCommand,
+    RemoveMigrationCommand,
+    MarkExisitngMigrationAsAppliedCommand
 >(args)
 .MapResult(
     (ValidateScriptCommand opts) =>
@@ -23,7 +25,6 @@ return Parser.Default.ParseArguments<
             Provider = opts.Provider,
             StartupProject = opts.StartupProject,
         });
-
     },
     (AddMigrationCommand opts) =>
     {
@@ -59,7 +60,32 @@ return Parser.Default.ParseArguments<
             ProcedureName = opts.ProcedureName,
             Provider = opts.Provider,
             StartupProject = opts.StartupProject,
-            NamingConvention = opts.NamingConvention
+            NamingConvention = opts.NamingConvention,
+            ConnectionString = opts.ConnectionString
+        });
+    },
+    (RemoveMigrationCommand opts) =>
+    {
+        CurrentCallInfo.StartupProject = opts.StartupProject;
+        return RemoveMigrationProcessor.RemoveMigration(new RemoveMigration()
+        {
+            MigrationPath = opts.OutputDirectory,
+            Provider = opts.Provider,
+            MigrationName = opts.MigrationName,
+            StartupProject = opts.StartupProject,
+            ConnectionString = opts.ConnectionString
+        });
+    },
+    (MarkExisitngMigrationAsAppliedCommand opts) =>
+    {
+        CurrentCallInfo.StartupProject = opts.StartupProject;
+        return MarkExistingMigrationAsAppliedProcessor.MarkExistingMigrationAsApplied(new MarkExisitngMigrationAsApplied()
+        {
+            MigrationPath = opts.OutputDirectory,
+            Provider = opts.Provider,
+            MigrationName = opts.MigrationName,
+            StartupProject = opts.StartupProject,
+            ConnectionString = opts.ConnectionString
         });
     },
     errs => 1
