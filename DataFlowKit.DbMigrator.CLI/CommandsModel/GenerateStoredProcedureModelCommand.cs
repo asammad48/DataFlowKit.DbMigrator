@@ -13,5 +13,8 @@ namespace DataFlowKit.DbMigrator.CLI.CommandsModel
 
         [Option("convention", Required = false, HelpText = "Please mention naming convention.")]
         public string NamingConvention { get; set; }
+
+        [Option("connection", Required = false, HelpText = "Connection string to the database.")]
+        public string ConnectionString { get; set; }
     }
 }
