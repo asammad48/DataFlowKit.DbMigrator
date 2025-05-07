@@ -17,7 +17,7 @@ namespace DataFlowKit.DbMigrator.CLI.CommandsModel
         [Option("startup", Required = true, HelpText = "Mention Startup Project Folder/Name")]
         public string StartupProject { get; set; }
 
-        [Option("provider", Required = true, HelpText = "Mention Startup Project Folder/Name")]
+        [Option("provider", Required = true, HelpText = "Database provider: sqlserver | postgres")]
         public string Provider { get; set; }
     }
 }
