@@ -16,7 +16,7 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                 {
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process started.");
                     opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
-                    opts.OutputDirectory = DefaultValueProvider.GetStoredProcedureModelPath(opts.OutputDirectory,true);
+                    opts.OutputDirectory = DefaultValueProvider.GetStoredProcedureModelPath(opts.OutputDirectory, true);
                     opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
                     opts.ConnectionString = DefaultValueProvider.GetConnectionString(opts.ConnectionString);
                     opts.NamingConvention = DefaultValueProvider.GetSpNamingConvention(opts.NamingConvention);

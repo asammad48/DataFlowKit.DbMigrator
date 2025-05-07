@@ -1,11 +1,6 @@
-﻿using DataFlowKit.DbMigrator.Common.Models;
-using DataFlowKit.DbMigrator.Common;
+﻿using DataFlowKit.DbMigrator.Common;
+using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataFlowKit.DbMigrator.MigratorFunctions
 {

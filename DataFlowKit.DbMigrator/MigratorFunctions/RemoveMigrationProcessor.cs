@@ -1,10 +1,5 @@
-﻿using DataFlowKit.DbMigrator.Common.Models;
-using DataFlowKit.DbMigrator.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataFlowKit.DbMigrator.Common;
+using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.Models;
 
 namespace DataFlowKit.DbMigrator.MigratorFunctions
@@ -24,8 +19,8 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                     opts.ConnectionString = DefaultValueProvider.GetConnectionString(opts.ConnectionString);
                     var provider = MigrationProviderFactory.Create(opts.Provider, opts.ConnectionString);
                     var manager = new MigrationManager(provider, "");
-                    var fileExists = ScriptLoader.ValidateFilePath(Path.Combine(opts.MigrationPath,opts.MigrationName));
-                    if(fileExists)
+                    var fileExists = ScriptLoader.ValidateFilePath(Path.Combine(opts.MigrationPath, opts.MigrationName));
+                    if (fileExists)
                     {
                         manager.RemoveMigrationAsync(Path.Combine(opts.MigrationPath, opts.MigrationName)).GetAwaiter().GetResult();
                     }

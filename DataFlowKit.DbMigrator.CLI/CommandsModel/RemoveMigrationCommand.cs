@@ -1,9 +1,4 @@
 ﻿using CommandLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataFlowKit.DbMigrator.CLI.CommandsModel
 {
@@ -15,7 +10,7 @@ namespace DataFlowKit.DbMigrator.CLI.CommandsModel
 
         [Option("output-dir", Required = false, HelpText = "Path to save the migration script.")]
         public string OutputDirectory { get; set; }
-        
+
         [Option("connection", Required = false, HelpText = "Connection string to the database.")]
         public string ConnectionString { get; set; }
 
