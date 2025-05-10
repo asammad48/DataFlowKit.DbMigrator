@@ -5,6 +5,7 @@
         public static string ScriptName = "";
         public static bool IsCallFromCLI = false;
         public static string StartupProject = "";
+        public static bool IsEntityDirectoryRelativePath = false;
     }
 
     public static class RunningScriptType

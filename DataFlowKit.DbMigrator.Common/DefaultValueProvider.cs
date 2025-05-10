@@ -86,6 +86,7 @@ namespace DataFlowKit.DbMigrator.Common
             }
             else
             {
+                CurrentCallInfo.IsEntityDirectoryRelativePath = true;
                 var projectName = GetSPProjectName();
                 var projectDirectory = Path.Combine(Directory.GetCurrentDirectory(), projectName);
                 if (Directory.Exists(projectDirectory))

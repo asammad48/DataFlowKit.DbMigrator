@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataFlowKit.DbMigrator.Common;
+using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.SqlServer.Models;
 using DataFlowKit.DbMigrator.SqlServer.TypesConverter;
 using Microsoft.Data.SqlClient;
@@ -23,7 +24,11 @@ namespace DataFlowKit.DbMigrator.SqlServer
             var spDefinition = GetStoredProcDefinition(storedProcName);
             var parameters = GetStoredProcParameters(storedProcName);
             var resultSets = GetResultSetStructures(storedProcName, parameters);
-            string relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+            string relativePathOfEntityFolder = "GeneratedModels";
+            if (CurrentCallInfo.IsEntityDirectoryRelativePath)
+            {
+                relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+            }
             var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder);
             File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
         }

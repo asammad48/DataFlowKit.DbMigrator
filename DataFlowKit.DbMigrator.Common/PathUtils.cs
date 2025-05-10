@@ -1,4 +1,6 @@
-﻿namespace DataFlowKit.DbMigrator.Common
+﻿using DataFlowKit.DbMigrator.Common.Models;
+
+namespace DataFlowKit.DbMigrator.Common
 {
     public static class PathUtils
     {
@@ -20,6 +22,7 @@
                 }
                 else
                 {
+                    CurrentCallInfo.IsEntityDirectoryRelativePath = true;
                     return Path.Combine(Directory.GetCurrentDirectory(), outputDirectory);
                 }
             }
