@@ -1,5 +1,17 @@
 
-/****** Object:  Table [dbo].[GlobalConfigurationHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/*
+============================================================
+ File        : 00000001_AddUserTable_QA.sql
+ Purpose     : DDL
+ Author      : Unknown
+ Created On  : 2025-05-11
+ Environment : QA
+ Usage       : 
+ Notes       : 
+============================================================
+*/
+GO
+/****** Object:  Table [dbo].[GlobalConfigurationHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +33,7 @@ CREATE TABLE [dbo].[GlobalConfigurationHistory](
 	[PeriodStart] [datetime2](7) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GlobalConfiguration]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[GlobalConfiguration]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -52,7 +64,7 @@ WITH
 SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].[GlobalConfigurationHistory])
 )
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +78,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Carrier]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Carrier]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -99,7 +111,7 @@ CREATE TABLE [dbo].[Carrier](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Customer]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Customer]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -120,7 +132,7 @@ CREATE TABLE [dbo].[Customer](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CustomerIntegration]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[CustomerIntegration]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +162,7 @@ CREATE TABLE [dbo].[CustomerIntegration](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DashboardUserBasedJobsSeen]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[DashboardUserBasedJobsSeen]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -174,7 +186,7 @@ CREATE TABLE [dbo].[DashboardUserBasedJobsSeen](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DashboardUserBasedSetting]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[DashboardUserBasedSetting]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +215,7 @@ CREATE TABLE [dbo].[DashboardUserBasedSetting](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DeviceDeliveryReport]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[DeviceDeliveryReport]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -227,7 +239,7 @@ CREATE TABLE [dbo].[DeviceDeliveryReport](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DeviceLog]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[DeviceLog]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -246,7 +258,7 @@ CREATE TABLE [dbo].[DeviceLog](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Devices]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Devices]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -279,7 +291,7 @@ CREATE TABLE [dbo].[Devices](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FailedInjectedServices]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[FailedInjectedServices]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -303,7 +315,7 @@ CREATE TABLE [dbo].[FailedInjectedServices](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FailspotItemTracking]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[FailspotItemTracking]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -327,7 +339,7 @@ CREATE TABLE [dbo].[FailspotItemTracking](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GlobalState]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[GlobalState]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -348,7 +360,7 @@ CREATE TABLE [dbo].[GlobalState](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ImportError]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ImportError]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -374,7 +386,7 @@ CREATE TABLE [dbo].[ImportError](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ImportErrorType]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ImportErrorType]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -388,7 +400,7 @@ CREATE TABLE [dbo].[ImportErrorType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ImportTrigger]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ImportTrigger]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -417,7 +429,7 @@ CREATE TABLE [dbo].[ImportTrigger](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ImportTriggerType]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ImportTriggerType]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -431,7 +443,7 @@ CREATE TABLE [dbo].[ImportTriggerType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Job]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Job]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -468,7 +480,7 @@ CREATE TABLE [dbo].[Job](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobDetail]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobDetail]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -491,7 +503,7 @@ CREATE TABLE [dbo].[JobDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobGeoTagging]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobGeoTagging]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -519,7 +531,7 @@ CREATE TABLE [dbo].[JobGeoTagging](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -559,7 +571,7 @@ CREATE TABLE [dbo].[JobHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobInjectedServices]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobInjectedServices]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -580,7 +592,7 @@ CREATE TABLE [dbo].[JobInjectedServices](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobJsonData]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobJsonData]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -599,7 +611,7 @@ CREATE TABLE [dbo].[JobJsonData](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobJsonTemplate]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobJsonTemplate]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -630,7 +642,7 @@ CREATE TABLE [dbo].[JobJsonTemplate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobJsonTemplateHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobJsonTemplateHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -655,7 +667,7 @@ CREATE TABLE [dbo].[JobJsonTemplateHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobLastDayCarrierHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobLastDayCarrierHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -666,7 +678,7 @@ CREATE TABLE [dbo].[JobLastDayCarrierHistory](
 	[TenantId] [uniqueidentifier] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobLocation]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobLocation]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -686,7 +698,7 @@ CREATE TABLE [dbo].[JobLocation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobStats]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobStats]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -726,7 +738,7 @@ CREATE TABLE [dbo].[JobStats](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobTaskQueue]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobTaskQueue]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -753,7 +765,7 @@ CREATE TABLE [dbo].[JobTaskQueue](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobWayPoint]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobWayPoint]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -772,7 +784,7 @@ CREATE TABLE [dbo].[JobWayPoint](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobWayPointTrigger]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[JobWayPointTrigger]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -796,7 +808,7 @@ CREATE TABLE [dbo].[JobWayPointTrigger](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Language]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Language]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -810,7 +822,7 @@ CREATE TABLE [dbo].[Language](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Location]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Location]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -860,7 +872,7 @@ CREATE TABLE [dbo].[Location](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LocationProductMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[LocationProductMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -876,7 +888,7 @@ CREATE TABLE [dbo].[LocationProductMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LocationtoAdd]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[LocationtoAdd]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -914,7 +926,7 @@ CREATE TABLE [dbo].[LocationtoAdd](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MobileJobJsonTemplate]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[MobileJobJsonTemplate]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -944,7 +956,7 @@ CREATE TABLE [dbo].[MobileJobJsonTemplate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MoveLocationHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[MoveLocationHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -966,7 +978,7 @@ CREATE TABLE [dbo].[MoveLocationHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NotificationTemplate]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[NotificationTemplate]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -988,7 +1000,7 @@ CREATE TABLE [dbo].[NotificationTemplate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NotificationTemplateType]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[NotificationTemplateType]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1002,7 +1014,7 @@ CREATE TABLE [dbo].[NotificationTemplateType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrganizationUnit]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[OrganizationUnit]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1032,7 +1044,7 @@ CREATE TABLE [dbo].[OrganizationUnit](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrganizationUnitCarrierMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[OrganizationUnitCarrierMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1051,7 +1063,7 @@ CREATE TABLE [dbo].[OrganizationUnitCarrierMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Plan]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Plan]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1075,7 +1087,7 @@ CREATE TABLE [dbo].[Plan](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ProblemType]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ProblemType]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1100,7 +1112,7 @@ CREATE TABLE [dbo].[ProblemType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PushNotification]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[PushNotification]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1120,7 +1132,7 @@ CREATE TABLE [dbo].[PushNotification](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PushNotificationDetail]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[PushNotificationDetail]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1148,7 +1160,7 @@ CREATE TABLE [dbo].[PushNotificationDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RoleClaims]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[RoleClaims]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1165,7 +1177,7 @@ CREATE TABLE [dbo].[RoleClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1181,7 +1193,7 @@ CREATE TABLE [dbo].[Roles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SalarySettlement]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[SalarySettlement]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1203,7 +1215,7 @@ CREATE TABLE [dbo].[SalarySettlement](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SalarySettlementEmailStatus]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[SalarySettlementEmailStatus]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1228,7 +1240,7 @@ CREATE TABLE [dbo].[SalarySettlementEmailStatus](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Service]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Service]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1264,7 +1276,7 @@ CREATE TABLE [dbo].[Service](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceContainerMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ServiceContainerMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1281,7 +1293,7 @@ CREATE TABLE [dbo].[ServiceContainerMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceDetail]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ServiceDetail]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1314,7 +1326,7 @@ CREATE TABLE [dbo].[ServiceDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceJsonData]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ServiceJsonData]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1333,7 +1345,7 @@ CREATE TABLE [dbo].[ServiceJsonData](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServicesPerformedFromBackend]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ServicesPerformedFromBackend]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1355,7 +1367,7 @@ CREATE TABLE [dbo].[ServicesPerformedFromBackend](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceStatus]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ServiceStatus]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1389,7 +1401,7 @@ CREATE TABLE [dbo].[ServiceStatus](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TablesForArchiving]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[TablesForArchiving]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1406,7 +1418,7 @@ CREATE TABLE [dbo].[TablesForArchiving](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[temGlobalConfiguration]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[temGlobalConfiguration]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1426,7 +1438,7 @@ CREATE TABLE [dbo].[temGlobalConfiguration](
 	[ConfigurationType] [tinyint] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tenant]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Tenant]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1445,7 +1457,7 @@ CREATE TABLE [dbo].[Tenant](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TenantOrganizationUnitMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[TenantOrganizationUnitMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1464,7 +1476,7 @@ CREATE TABLE [dbo].[TenantOrganizationUnitMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TenantUserMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[TenantUserMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1481,7 +1493,7 @@ CREATE TABLE [dbo].[TenantUserMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Terminal]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Terminal]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1508,7 +1520,7 @@ CREATE TABLE [dbo].[Terminal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Thread]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Thread]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1531,7 +1543,7 @@ CREATE TABLE [dbo].[Thread](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ThreadMessage]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ThreadMessage]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1552,7 +1564,7 @@ CREATE TABLE [dbo].[ThreadMessage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ThreadMessageRead]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[ThreadMessageRead]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1568,7 +1580,7 @@ CREATE TABLE [dbo].[ThreadMessageRead](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Threshold]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Threshold]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1589,7 +1601,7 @@ CREATE TABLE [dbo].[Threshold](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Translation]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Translation]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1605,7 +1617,7 @@ CREATE TABLE [dbo].[Translation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserCarrierMapping]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserCarrierMapping]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1620,7 +1632,7 @@ CREATE TABLE [dbo].[UserCarrierMapping](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserClaims]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserClaims]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1636,7 +1648,7 @@ CREATE TABLE [dbo].[UserClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserLoginHistory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserLoginHistory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1653,7 +1665,7 @@ CREATE TABLE [dbo].[UserLoginHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserLogins]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserLogins]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1670,7 +1682,7 @@ CREATE TABLE [dbo].[UserLogins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserRoles]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserRoles]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1685,7 +1697,7 @@ CREATE TABLE [dbo].[UserRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1728,7 +1740,7 @@ CREATE TABLE [dbo].[Users](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserTokens]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserTokens]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1752,7 +1764,7 @@ CREATE TABLE [dbo].[UserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserWidgets]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[UserWidgets]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1771,7 +1783,7 @@ CREATE TABLE [dbo].[UserWidgets](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Widget]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[Widget]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1801,7 +1813,7 @@ CREATE TABLE [dbo].[Widget](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[WidgetCategory]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  Table [dbo].[WidgetCategory]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2262,156 +2274,132 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Widget] CHECK CONSTRAINT [FK_Widget_WidgetCategory_CategoryId]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ArchiveData]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_ArchiveData]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_ArchiveData]
-  @productionDate DATE,
-  @tenantId UNIQUEIDENTIFIER
+@productionDate DATE, @tenantId UNIQUEIDENTIFIER
 AS
-  BEGIN
-    IF EXISTS
-    (
-           SELECT 1
-           FROM   job
-           WHERE  productiondate = @productionDate
-           AND    tenantid=@tenantId)
-    BEGIN
-      RETURN;
-    END
-    DECLARE @Id                    INT =1,
-      @maxId                       INT=0;
-    DECLARE @tableName             NVARCHAR(255);
-    DECLARE @AdditionalFilterQuery NVARCHAR(500);
-    DECLARE @TableHasIdentity      BIT=0;
-    DECLARE @sourceDB              NVARCHAR(255)
-    DECLARE @destinationDB         NVARCHAR(255)
-    DECLARE @query                 NVARCHAR (max);
-    DECLARE @primaryKey            NVARCHAR (255);
-    -- Disable all constraints for database
-    SELECT @destinationDB=[Value]
+BEGIN
+    IF EXISTS (SELECT 1
+               FROM   job
+               WHERE  productiondate = @productionDate
+                      AND tenantid = @tenantId)
+        BEGIN
+            RETURN;
+        END
+    DECLARE @Id AS INT = 1, @maxId AS INT = 0;
+    DECLARE @tableName AS NVARCHAR (255);
+    DECLARE @AdditionalFilterQuery AS NVARCHAR (500);
+    DECLARE @TableHasIdentity AS BIT = 0;
+    DECLARE @sourceDB AS NVARCHAR (255);
+    DECLARE @destinationDB AS NVARCHAR (255);
+    DECLARE @query AS NVARCHAR (MAX);
+    DECLARE @primaryKey AS NVARCHAR (255);
+    SELECT @destinationDB = [Value]
     FROM   globalconfiguration
-    WHERE  [Key]='106'
-    SELECT @sourceDB='['+Db_name()+']' ;
-    
-    PRINT(@sourceDB)
-    EXEC ('EXEC '+@destinationDB+'..sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"')
-    --EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
-    PRINT(@destinationDB)
-    SELECT @maxId=Max(id)
+    WHERE  [Key] = '106';
+    SELECT @sourceDB = '[' + Db_name() + ']';
+    PRINT (@sourceDB);
+    EXECUTE ('EXEC ' + @destinationDB + '..sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"');
+    PRINT (@destinationDB);
+    SELECT @maxId = Max(id)
     FROM   tablesforarchiving
-    WHERE  tablename <>'GlobalConfiguration'
-    SET @query='';
+    WHERE  tablename <> 'GlobalConfiguration';
+    SET @query = '';
     WHILE (@Id <= @maxId)
-    BEGIN
-      IF EXISTS
-      (
-             SELECT 1
-             FROM   tablesforarchiving
-             WHERE  id=@Id
-             AND    tablename <>'GlobalConfiguration')
-      BEGIN
-        SELECT @tableName =tablename,
-               @AdditionalFilterQuery = Isnull(additionalfilterquery,'')
-        FROM   tablesforarchiving
-        WHERE  id=@Id
-        AND    tablename <>'GlobalConfiguration'
-        IF (@tableName = 'JobGeoTagging')
         BEGIN
-          -- this table is being moved in a different way because it has to serialize the content
-          -- for the archive database
-          -- create temporary synonym as this dynamic query will sow the archiving process
-          EXEC ('CREATE SYNONYM SourceJobGeoTagging FOR '+@SourceDB+'..JobGeoTagging;')
-          EXEC ('CREATE SYNONYM DestJobGeoTagging FOR '  +@DestinationDB+'..JobGeoTagging;')
-          EXEC ('CREATE SYNONYM SourceJob FOR '          +@SourceDB+'..Job;')
-          INSERT INTO destjobgeotagging
-          SELECT     Max(outertable.id)        AS id,
-                     Max(outertable.createdon) AS createdon,
-                     Max(outertable.createdby) AS createdby,
-                     0                         AS isdeleted,
-                     outertable.jobid,
-                     Max(outertable.serviceworkerid)  AS serviceworkerid,
-                     Max(outertable.deviceid)         AS deviceid,
-                     Max(outertable.deliveryreportid) AS deliveryreportid,
-                     0                                AS latitude,
-                     0                                AS longitude,
-                     NULL                             AS servicetypeid,
-                     NULL                             AS locationname,
-                     NULL                             AS locationaddress,
-                     NULL                             AS swipedistance,
-                     Max(outertable.reportedtime)     AS reportedtime,
-                     (
-                            SELECT id,
-                                   latitude,
-                                   longitude,
-                                   reportedtime,
-                                   jobid,
-                                   servicetypeid,
-                                   swipedistance,
-                                   locationaddress,
-                                   locationname
-                            FROM   sourcejobgeotagging AS innertable
-                            WHERE  innertable.jobid = outertable.jobid FOR json path ) AS jsoncontent
-          FROM       sourcejobgeotagging                                               AS outertable
-          INNER JOIN sourcejob sj
-          ON         sj.id=outertable.jobid
-          AND        sj.tenantid=@tenantId
-          GROUP BY   outertable.jobid
-          -- Dropping temporary synonym
-          EXEC ('DROP SYNONYM SourceJobGeoTagging;')
-          EXEC ('DROP SYNONYM DestJobGeoTagging;')
-          EXEC ('DROP SYNONYM SourceJob;')
+            IF EXISTS (SELECT 1
+                       FROM   tablesforarchiving
+                       WHERE  id = @Id
+                              AND tablename <> 'GlobalConfiguration')
+                BEGIN
+                    SELECT @tableName = tablename,
+                           @AdditionalFilterQuery = Isnull(additionalfilterquery, '')
+                    FROM   tablesforarchiving
+                    WHERE  id = @Id
+                           AND tablename <> 'GlobalConfiguration';
+                    IF (@tableName = 'JobGeoTagging')
+                        BEGIN
+                            EXECUTE ('CREATE SYNONYM SourceJobGeoTagging FOR ' + @SourceDB + '..JobGeoTagging;');
+                            EXECUTE ('CREATE SYNONYM DestJobGeoTagging FOR ' + @DestinationDB + '..JobGeoTagging;');
+                            EXECUTE ('CREATE SYNONYM SourceJob FOR ' + @SourceDB + '..Job;');
+                            INSERT INTO destjobgeotagging
+                            SELECT   Max(outertable.id) AS id,
+                                     Max(outertable.createdon) AS createdon,
+                                     Max(outertable.createdby) AS createdby,
+                                     0 AS isdeleted,
+                                     outertable.jobid,
+                                     Max(outertable.serviceworkerid) AS serviceworkerid,
+                                     Max(outertable.deviceid) AS deviceid,
+                                     Max(outertable.deliveryreportid) AS deliveryreportid,
+                                     0 AS latitude,
+                                     0 AS longitude,
+                                     NULL AS servicetypeid,
+                                     NULL AS locationname,
+                                     NULL AS locationaddress,
+                                     NULL AS swipedistance,
+                                     Max(outertable.reportedtime) AS reportedtime,
+                                     (SELECT id,
+                                             latitude,
+                                             longitude,
+                                             reportedtime,
+                                             jobid,
+                                             servicetypeid,
+                                             swipedistance,
+                                             locationaddress,
+                                             locationname
+                                      FROM   sourcejobgeotagging AS innertable
+                                      WHERE  innertable.jobid = outertable.jobid
+                                      FOR    JSON PATH) AS jsoncontent
+                            FROM     sourcejobgeotagging AS outertable
+                                     INNER JOIN
+                                     sourcejob AS sj
+                                     ON sj.id = outertable.jobid
+                                        AND sj.tenantid = @tenantId
+                            GROUP BY outertable.jobid;
+                            EXECUTE ('DROP SYNONYM SourceJobGeoTagging;');
+                            EXECUTE ('DROP SYNONYM DestJobGeoTagging;');
+                            EXECUTE ('DROP SYNONYM SourceJob;');
+                        END
+                    ELSE
+                        BEGIN
+                            SELECT @primaryKey = column_name
+                            FROM   information_schema.key_column_usage
+                            WHERE  table_name LIKE @tableName
+                                   AND constraint_name LIKE 'PK%';
+                            SET @tableName = '[' + @tableName + ']';
+                            SET @TableHasIdentity = Objectproperty(Object_id(@tableName), 'TableHasIdentity');
+                            IF (@TableHasIdentity = 1)
+                                BEGIN
+                                    SET @query = @query + 'set identity_insert ' + @destinationDB + '..' + @tableName + ' on;';
+                                END
+                            DECLARE @columns AS NVARCHAR (MAX) = (SELECT '[' + NAME + '], ' AS [text()]
+                                                                  FROM   sys.columns
+                                                                  WHERE  object_id = Object_id(@tableName)
+                                                                  FOR    XML PATH (''));
+                            SELECT @columns = LEFT(@columns, Len(@columns) - 1);
+                            SET @query = @query + ' INSERT INTO ' + @destinationDB + '..' + @tableName + ' (' + @columns + ')          SELECT ' + @columns + ' FROM ' + @sourceDB + '..' + @tableName + ' with (nolock) WHERE ' + @primaryKey + ' NOT IN (SELECT DISTINCT ' + @primaryKey + ' FROM ' + @destinationDB + '..' + @tableName + ' with (nolock)) ' + Replace(Replace(Replace(Replace(@AdditionalFilterQuery, '@destinationDB', @destinationDB), '@DB', @sourceDB), '@productionDate', @productionDate), '@tenantId', @tenantId) + ';';
+                            IF @columns LIKE '%ProductionDate%'
+                                BEGIN
+                                    SET @query = @query + ' Update ' + @destinationDB + '..' + @tableName + ' set ProductionDate=''+Cast(@productionDate AS VARCHAR(20))+'' where ProductionDate is null; ';
+                                END
+                            IF (@TableHasIdentity = 1)
+                                BEGIN
+                                    SET @query = @query + ' set identity_insert ' + @destinationDB + '.dbo.' + @tableName + ' off;';
+                                END
+                        END
+                END
+            SET @Id = @Id + 1;
         END
-        ELSE
-        BEGIN
-          SELECT @primaryKey=column_name
-          FROM   information_schema.key_column_usage
-          WHERE  table_name LIKE @tableName
-          AND    constraint_name LIKE 'PK%'
-          --Select @primaryKey
-          SET @tableName ='['+@tableName+']'
-          --print @primarykey
-          SET @TableHasIdentity =Objectproperty(Object_id(@tableName), 'TableHasIdentity') ;
-          IF (@TableHasIdentity = 1)
-          BEGIN
-            SET @query= @query+'set identity_insert '+@destinationDB+'..'+ @tableName+' on;';
-          END
-          DECLARE @columns NVARCHAR(max)=
-          (
-                 SELECT '['+NAME +'], ' AS [text()]
-                 FROM   sys.columns
-                 WHERE  object_id = Object_id(@tableName) FOR xml path(''))
-          SELECT @columns=LEFT(@columns,Len(@columns)-1)--remove last comma
-          SET @query= @query+ ' INSERT INTO '+@destinationDB+'..'+@tableName+' ('+@columns+')          SELECT '+@columns+' FROM '+@sourceDB+'..'+@tableName+' with (nolock) WHERE '+@primaryKey+' NOT IN (SELECT DISTINCT '+@primaryKey+' FROM '+@destinationDB+'..'+@tableName +' with (nolock)) '+ Replace(Replace(Replace(Replace(@AdditionalFilterQuery,'@destinationDB',@destinationDB),'@DB',@sourceDB),'@productionDate',@productionDate),'@tenantId',@tenantId) +';';
-          IF @columns LIKE '%ProductionDate%'
-          BEGIN
-            SET @query= @query+ ' Update '+ @destinationDB+'..'+@tableName+' set ProductionDate=''+Cast(@productionDate AS VARCHAR(20))+'' where ProductionDate is null; ';
-          END
-          --if @columns like '%TenantId%'
-          --begin
-          --set @query= @query+ ' Update '+ @destinationDB+'..'+@tableName+' set TenantId=''+CAST(@tenantId AS nvarchar(max))+'' where tenantId is null; ';
-          --end
-          IF (@TableHasIdentity = 1)
-          BEGIN
-            SET @query =@query+' set identity_insert '+@destinationDB+'.dbo.'+ @tableName+' off;';
-          END
-          --print @query
-        END
-      END
-      SET @Id=@Id+1;
-    END
-    --Select @query
-    EXEC(@query)
-    EXEC sp_updatestats
-      -- Enable all constraints for database
-      --EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"
-    EXEC ('EXEC '+@destinationDB+'..sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"')
-    --UPDATE ServiceWorker SET StatusId=3 WHERE StatusId<>3
-  END
+    EXECUTE (@query);
+    EXECUTE sp_updatestats ;
+    EXECUTE ('EXEC ' + @destinationDB + '..sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"');
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Delete_Job_Related_Table_In_Go]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_Delete_Job_Related_Table_In_Go]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2419,524 +2407,448 @@ GO
 CREATE PROCEDURE [dbo].[SP_Delete_Job_Related_Table_In_Go]
 AS
 BEGIN
-               -- Location and Job Related Data Selection ---
-
---Select count(*) from JobDetail jd with (nolock) LEFT JOIN Job j with (nolock) ON jd.Id=j.Id WHERE j.Id IS NULL
-
---select count(*) from JobJsonData jjd with (nolock) LEFT JOIN Job j with (nolock) ON jjd.Id = j.Id WHERE j.Id IS NULL
-
---select count(*) from JobLocation jl with (nolock) LEFT JOIN [Location] l with (nolock) ON jl.LocationId = l.Id WHERE l.Id IS NULL
-
---Select count(*) from JobLocation jl with (nolock) LEFT JOIN Job j with (nolock) ON jl.JobId = j.Id where j.Id IS NULL
-
---select count(*) from JobStats js with (nolock) LEFT JOIN Job j with (nolock) ON js.JobId = j.Id WHERE j.Id IS NULL
-
---select count(*) from LocationProductMapping lpm with (nolock) LEFT JOIN [Location] l with (nolock) ON lpm.LocationId = l.Id WHERE l.Id IS NULL 
-
-              -- Delete Query (Location and Job Related Data)
-
-Delete jd from JobDetail jd LEFT JOIN Job j ON jd.Id=j.Id WHERE j.Id IS NULL
-
-Delete jjd from JobJsonData jjd LEFT JOIN Job j ON jjd.Id = j.Id WHERE j.Id IS NULL
-
-Delete jl from JobLocation jl LEFT JOIN [Location] l ON jl.LocationId = l.Id WHERE l.Id IS NULL
-
-Delete jl from JobLocation jl LEFT JOIN Job j ON jl.JobId = j.Id where j.Id IS NULL
-
-Delete js from JobStats js LEFT JOIN Job j ON js.JobId = j.Id WHERE j.Id IS NULL
-
-Delete lpm from LocationProductMapping lpm LEFT JOIN [Location] l ON lpm.LocationId = l.Id WHERE l.Id IS NULL 
- 
-                   -- User Related Data Issue ---
---select count(*) from TenantOrganizationUnitMapping tom with (nolock) LEFT JOIN Users u with (nolock) ON tom.UserId = u.Id WHERE u.Id IS NULL
-
---select count(*) from UserRoles ur with (nolock) LEFT JOIN Users u with (nolock) ON ur.UserId=u.Id WHERE u.Id IS NULL
-
-                   -- Delete Query ( User Related Data)
-delete tom from TenantOrganizationUnitMapping tom LEFT JOIN Users u ON tom.UserId = u.Id WHERE u.Id IS NULL
-
-delete ur from UserRoles ur LEFT JOIN Users u ON ur.UserId=u.Id WHERE u.Id IS NULL
-
+    DELETE jd
+    FROM   JobDetail AS jd
+           LEFT OUTER JOIN
+           Job AS j
+           ON jd.Id = j.Id
+    WHERE  j.Id IS NULL;
+    DELETE jjd
+    FROM   JobJsonData AS jjd
+           LEFT OUTER JOIN
+           Job AS j
+           ON jjd.Id = j.Id
+    WHERE  j.Id IS NULL;
+    DELETE jl
+    FROM   JobLocation AS jl
+           LEFT OUTER JOIN
+           [Location] AS l
+           ON jl.LocationId = l.Id
+    WHERE  l.Id IS NULL;
+    DELETE jl
+    FROM   JobLocation AS jl
+           LEFT OUTER JOIN
+           Job AS j
+           ON jl.JobId = j.Id
+    WHERE  j.Id IS NULL;
+    DELETE js
+    FROM   JobStats AS js
+           LEFT OUTER JOIN
+           Job AS j
+           ON js.JobId = j.Id
+    WHERE  j.Id IS NULL;
+    DELETE lpm
+    FROM   LocationProductMapping AS lpm
+           LEFT OUTER JOIN
+           [Location] AS l
+           ON lpm.LocationId = l.Id
+    WHERE  l.Id IS NULL;
+    DELETE tom
+    FROM   TenantOrganizationUnitMapping AS tom
+           LEFT OUTER JOIN
+           Users AS u
+           ON tom.UserId = u.Id
+    WHERE  u.Id IS NULL;
+    DELETE ur
+    FROM   UserRoles AS ur
+           LEFT OUTER JOIN
+           Users AS u
+           ON ur.UserId = u.Id
+    WHERE  u.Id IS NULL;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Reset_History_Tables]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_Reset_History_Tables]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
-					CREATE PROCEDURE [dbo].[SP_Reset_History_Tables]
-                    AS
-                    BEGIN
-                        DELETE FROM UserLoginHistory WHERE DATEDIFF(DAY,CreatedOn,GETUTCDATE())>28
-                        DELETE FROM ServicesPerformedFromBackend WHERE JobId NOT IN (SELECT Id FROM Job) 
-                        DELETE FROM JobTaskQueue WHERE DATEDIFF(DAY,CreatedOn,GETUTCDATE())>7
-                        DELETE FROM SalarySettlementEmailStatus WHERE DATEDIFF(DAY,CreatedOn,GETUTCDATE())>7 
-                        DELETE FROM ImportError WHERE DATEDIFF(DAY,CreatedOn,GETUTCDATE())>7
-                        DELETE FROM DashboardUserBasedJobsSeen WHERE JOBID NOT IN (select id from Job)
-                    END
+CREATE PROCEDURE [dbo].[SP_Reset_History_Tables]
+AS
+BEGIN
+    DELETE UserLoginHistory
+    WHERE  DATEDIFF(DAY, CreatedOn, GETUTCDATE()) > 28;
+    DELETE ServicesPerformedFromBackend
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE JobTaskQueue
+    WHERE  DATEDIFF(DAY, CreatedOn, GETUTCDATE()) > 7;
+    DELETE SalarySettlementEmailStatus
+    WHERE  DATEDIFF(DAY, CreatedOn, GETUTCDATE()) > 7;
+    DELETE ImportError
+    WHERE  DATEDIFF(DAY, CreatedOn, GETUTCDATE()) > 7;
+    DELETE DashboardUserBasedJobsSeen
+    WHERE  JOBID NOT IN (SELECT id
+                         FROM   Job);
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ResetJobAndTasks]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_ResetJobAndTasks]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
-				CREATE PROCEDURE [dbo].[SP_ResetJobAndTasks]
-				@productionDate Date = Null,
-				@tenantId uniqueidentifier  = Null
-				AS
-				BEGIN
-					-- SET NOCOUNT ON added to prevent extra result sets from
-					-- interfering with SELECT statements.
-					SET NOCOUNT ON;
-
-					ALTER DATABASE [EKL_Packages_Uplift]
-					SET RECOVERY SIMPLE
-
-					-- Disable all constraints for database
-					EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
-
-					DELETE FROM [Job] WHERE TenantId = @tenantId
-					DELETE FROM [JobDetail] WHERE Id NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [JobHistory] WHERE JobPrimayId NOT IN (SELECT Id FROM Job)  
-
-					DELETE FROM [JobLocation] WHERE JobId NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [Location] WHERE Id NOT IN (SELECT LocationId FROM JobLocation)  
-					DELETE FROM [LocationProductMapping] WHERE LocationId NOT IN (SELECT Id FROM Location)
-
-					DELETE FROM [Service] WHERE JobId NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [ServiceDetail] WHERE Id NOT IN (SELECT Id FROM [Service])  
-					DELETE FROM [ServiceContainerMapping] WHERE ServiceId NOT IN (SELECT Id FROM [Service])  
-					DELETE FROM [ServiceStatus] WHERE Id NOT IN (SELECT Id FROM [ServiceContainerMapping])  
-
-					DELETE FROM [JobWayPoint] WHERE Id NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [JobJsonData] WHERE Id NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [ServiceJsonData] WHERE Id NOT IN (SELECT Id FROM Job)  
-					DELETE FROM [Plan] WHERE Id NOT IN (SELECT PlanId FROM Job) AND [Plan].TenantId = @tenantId
-
-					DELETE FROM [PushNotification]
-					DELETE FROM [PushNotificationDetail] 
-	
-					DELETE FROM [CustomerIntegration] WHERE TenantId = @tenantId
-
-					DELETE FROM [DeviceDeliveryReport] WHERE TenantId = @tenantId
-
-					--DELETE FROM FailspotItemTracking  
-					DELETE FROM [JobGeoTagging] WHERE JobId NOT IN (SELECT Id FROM Job)
-					DELETE FROM [JobInjectedServices] WHERE JobId NOT IN (SELECT Id FROM Job)
-
-					--DELETE FROM [UserTokens] WHERE CAST(CreatedOn AS DATE) <> CAST(GETDATE() AS DATE)
-					--AND UserId IN (SELECT UserId FROM [dbo].[TenantUserMapping] WHERE TenantId = @tenantId)
-
-					DELETE FROM [SalarySettlement] WHERE TenantId = @tenantId
-					DELETE FROM [JobStats] WHERE TenantId = @tenantId
-					Delete from MoveLocationHistory WHERE TenantId = @tenantId
-					
-					Delete from UserTokens where UserId in (
-					select AssigendUserId from Devices where AssigendUserId is not null and  IsDeleted=0 and AssigendUserId in (
-					select ServiceWorkerId from Job where TenantId=@tenantId
-					))
-					and ExpiresOn< GETDATE()
-
-                    DELETE FROM FailspotItemTracking WHERE JobId NOT IN (SELECT Id FROM Job) 
-
-                    DELETE FROM FailedInjectedServices WHERE TenantId = @tenantId
-                    
-                    DELETE FROM JobWayPointTrigger WHERE TenantId = @tenantId
-
-					ALTER DATABASE [EKL_Packages_Uplift]
-					SET RECOVERY FULL
-
-					-- Enable all constraints for database
-					EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
-   
-				END
+CREATE PROCEDURE [dbo].[SP_ResetJobAndTasks]
+@productionDate DATE=NULL, @tenantId UNIQUEIDENTIFIER=NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    ALTER DATABASE [EKL_Packages_Uplift]
+        SET RECOVERY SIMPLE;
+    EXECUTE sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all';
+    DELETE [Job]
+    WHERE  TenantId = @tenantId;
+    DELETE [JobDetail]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   Job);
+    DELETE [JobHistory]
+    WHERE  JobPrimayId NOT IN (SELECT Id
+                               FROM   Job);
+    DELETE [JobLocation]
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE [Location]
+    WHERE  Id NOT IN (SELECT LocationId
+                      FROM   JobLocation);
+    DELETE [LocationProductMapping]
+    WHERE  LocationId NOT IN (SELECT Id
+                              FROM   Location);
+    DELETE [Service]
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE [ServiceDetail]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   [Service]);
+    DELETE [ServiceContainerMapping]
+    WHERE  ServiceId NOT IN (SELECT Id
+                             FROM   [Service]);
+    DELETE [ServiceStatus]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   [ServiceContainerMapping]);
+    DELETE [JobWayPoint]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   Job);
+    DELETE [JobJsonData]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   Job);
+    DELETE [ServiceJsonData]
+    WHERE  Id NOT IN (SELECT Id
+                      FROM   Job);
+    DELETE [Plan]
+    WHERE  Id NOT IN (SELECT PlanId
+                      FROM   Job)
+           AND [Plan].TenantId = @tenantId;
+    DELETE [PushNotification];
+    DELETE [PushNotificationDetail];
+    DELETE [CustomerIntegration]
+    WHERE  TenantId = @tenantId;
+    DELETE [DeviceDeliveryReport]
+    WHERE  TenantId = @tenantId;
+    DELETE [JobGeoTagging]
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE [JobInjectedServices]
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE [SalarySettlement]
+    WHERE  TenantId = @tenantId;
+    DELETE [JobStats]
+    WHERE  TenantId = @tenantId;
+    DELETE MoveLocationHistory
+    WHERE  TenantId = @tenantId;
+    DELETE UserTokens
+    WHERE  UserId IN (SELECT AssigendUserId
+                      FROM   Devices
+                      WHERE  AssigendUserId IS NOT NULL
+                             AND IsDeleted = 0
+                             AND AssigendUserId IN (SELECT ServiceWorkerId
+                                                    FROM   Job
+                                                    WHERE  TenantId = @tenantId))
+           AND ExpiresOn < GETDATE();
+    DELETE FailspotItemTracking
+    WHERE  JobId NOT IN (SELECT Id
+                         FROM   Job);
+    DELETE FailedInjectedServices
+    WHERE  TenantId = @tenantId;
+    DELETE JobWayPointTrigger
+    WHERE  TenantId = @tenantId;
+    ALTER DATABASE [EKL_Packages_Uplift]
+        SET RECOVERY FULL;
+    EXECUTE sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all';
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ServicesListForJobsDetailReport]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_ServicesListForJobsDetailReport]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_ServicesListForJobsDetailReport]
-                                @JobIds NVARCHAR(MAX)
-                            AS
-                            BEGIN
-                                -- Drop temporary table if it already exists
-                                DROP TABLE IF EXISTS #LocationNumbers;
-
-                                -- Create temporary table to hold location numbers
-                                SELECT 
-                                    lp.LocationId,
-                                    LocationNumber = STUFF(
-                                        (
-                                            SELECT ',' + CAST(lp2.DAOLocationId AS NVARCHAR)
-                                            FROM LocationProductMapping lp2
-                                            WHERE lp2.LocationId = lp.LocationId
-                                            FOR XML PATH(''), TYPE
-                                        ).value('.', 'VARCHAR(MAX)'), 
-                                        1, 1, ''
-                                    )
-                                INTO #LocationNumbers
-                                FROM LocationProductMapping lp
-                                GROUP BY lp.LocationId;
-
-                                -- Main query to generate report data
-                                SELECT 
-                                    s.ProductionDate AS ProductionDate,
-                                    ISNULL(s.TypeId, 0) AS TypeId,
-                                    ISNULL(ss.Status, 0) AS ServiceStatus,
-                                    ISNULL(ss.SwipeTime, '1900-01-01') AS SwipeTime,
-				                    CAST(ISNULL(SS.SwipeDistance, 0) AS FLOAT) SwipeRadius,
-				                    SS.SwipeType SwipeType,
-                                    ss.NoteText AS NoteText,
-                                    s.SortOrder AS SortOrder,
-                                    j.JobNumber AS Route,
-                                    ISNULL(c.ProductContainerId, '00000000-0000-0000-0000-000000000000') AS ProductContainerId,
-                                    l.Name AS LocationName,
-                                    ln.LocationNumber AS LocationNumber,
-                                    IIF(ss.NoteType = 'Problem', ss.NoteText, NULL) AS ProblemType,
-                                    sd.ProductType AS ProductTypeId,
-                                    sd.ItemId AS ItemId,
-                                    sd.ObjectType AS ObjectType,
-                                    ISNULL(sd.ReceiptType, 0) AS ReceiptType,
-                                    s.Id AS ServiceId,
-                                    c.JobLocationId AS JobLocationId,
-                                    ISNULL(s.ProductTypeId, 0) AS ProductType,
-                                    s.JobId AS JobId,
-                                    ISNULL(c.ParentContainerId, '00000000-0000-0000-0000-000000000000') AS ParentContainerId,
-                                    s.DisplayName AS DisplayName,
-                                    ss.Quantity AS ServiceStatusQuantity,
-                                    ss.NoteType AS NoteType,
-                                    sd.Action AS ServiceAction,
-                                    sd.LabelCode AS LabelCode,
-                                    c.Id AS ContainerId,
-                                    jl.LocationId AS LocationId
-                                FROM ServiceContainerMapping c
-                                LEFT JOIN Service s ON c.ServiceId = s.Id
-                                INNER JOIN (
-                                    SELECT value AS JobId 
-                                    FROM STRING_SPLIT(@JobIds, ',')
-                                ) jt ON s.JobId = jt.JobId
-                                LEFT JOIN Job j ON j.Id = s.JobId
-                                LEFT JOIN JobLocation jl ON c.JobLocationId = jl.Id
-                                LEFT JOIN Location l ON jl.LocationId = l.Id
-                                LEFT JOIN #LocationNumbers ln ON l.Id = ln.LocationId
-                                LEFT JOIN ServiceDetail sd ON s.Id = sd.Id
-                                LEFT JOIN ServiceStatus ss ON c.Id = ss.Id;
-
-                                -- Uncomment if ordering is required
-                                -- ORDER BY s.ProductionDate;
-                            END;
-            
+@JobIds NVARCHAR (MAX)
+AS
+BEGIN
+    DROP TABLE IF EXISTS #LocationNumbers;
+    SELECT   lp.LocationId,
+             STUFF((SELECT ',' + CAST (lp2.DAOLocationId AS NVARCHAR)
+                    FROM   LocationProductMapping AS lp2
+                    WHERE  lp2.LocationId = lp.LocationId
+                    FOR    XML PATH (''), TYPE).value('.', 'VARCHAR(MAX)'), 1, 1, '') AS LocationNumber
+    INTO     #LocationNumbers
+    FROM     LocationProductMapping AS lp
+    GROUP BY lp.LocationId;
+    SELECT s.ProductionDate AS ProductionDate,
+           ISNULL(s.TypeId, 0) AS TypeId,
+           ISNULL(ss.Status, 0) AS ServiceStatus,
+           ISNULL(ss.SwipeTime, '1900-01-01') AS SwipeTime,
+           CAST (ISNULL(SS.SwipeDistance, 0) AS FLOAT) AS SwipeRadius,
+           SS.SwipeType AS SwipeType,
+           ss.NoteText AS NoteText,
+           s.SortOrder AS SortOrder,
+           j.JobNumber AS Route,
+           ISNULL(c.ProductContainerId, '00000000-0000-0000-0000-000000000000') AS ProductContainerId,
+           l.Name AS LocationName,
+           ln.LocationNumber AS LocationNumber,
+           IIF (ss.NoteType = 'Problem', ss.NoteText, NULL) AS ProblemType,
+           sd.ProductType AS ProductTypeId,
+           sd.ItemId AS ItemId,
+           sd.ObjectType AS ObjectType,
+           ISNULL(sd.ReceiptType, 0) AS ReceiptType,
+           s.Id AS ServiceId,
+           c.JobLocationId AS JobLocationId,
+           ISNULL(s.ProductTypeId, 0) AS ProductType,
+           s.JobId AS JobId,
+           ISNULL(c.ParentContainerId, '00000000-0000-0000-0000-000000000000') AS ParentContainerId,
+           s.DisplayName AS DisplayName,
+           ss.Quantity AS ServiceStatusQuantity,
+           ss.NoteType AS NoteType,
+           sd.Action AS ServiceAction,
+           sd.LabelCode AS LabelCode,
+           c.Id AS ContainerId,
+           jl.LocationId AS LocationId
+    FROM   ServiceContainerMapping AS c
+           LEFT OUTER JOIN
+           Service AS s
+           ON c.ServiceId = s.Id
+           INNER JOIN
+           (SELECT value AS JobId
+            FROM   STRING_SPLIT (@JobIds, ',')) AS jt
+           ON s.JobId = jt.JobId
+           LEFT OUTER JOIN
+           Job AS j
+           ON j.Id = s.JobId
+           LEFT OUTER JOIN
+           JobLocation AS jl
+           ON c.JobLocationId = jl.Id
+           LEFT OUTER JOIN
+           Location AS l
+           ON jl.LocationId = l.Id
+           LEFT OUTER JOIN
+           #LocationNumbers AS ln
+           ON l.Id = ln.LocationId
+           LEFT OUTER JOIN
+           ServiceDetail AS sd
+           ON s.Id = sd.Id
+           LEFT OUTER JOIN
+           ServiceStatus AS ss
+           ON c.Id = ss.Id;
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UpdateGeoTaggingData]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[SP_UpdateGeoTaggingData]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[SP_UpdateGeoTaggingData] 
-@JobId uniqueidentifier,
-@data NVARCHAR(MAX)
+CREATE PROCEDURE [dbo].[SP_UpdateGeoTaggingData]
+@JobId UNIQUEIDENTIFIER, @data NVARCHAR (MAX)
 AS
 BEGIN
     SET NOCOUNT ON;
-
-	--ALTER DATABASE [EKL_Packages_Uplift] SET RECOVERY SIMPLE;
-
-    IF EXISTS (SELECT * FROM JobGeoTagging WHERE JobId = @JobId)
-		BEGIN
-			DECLARE @existingJson NVARCHAR(MAX);
-
-			-- Get the existing JsonContent for the specified JobId
-			SELECT @existingJson = JsonContent
-			FROM JobGeoTagging
-			WHERE JobId = @JobId;
-
-			IF @existingJson IS NULL
-			BEGIN
-				-- If JsonContent is NULL, set it to the input JSON array
-				UPDATE JobGeoTagging 
-				SET JsonContent = @data
-				WHERE JobId = @JobId;
-			END
-			ELSE
-			BEGIN
-				-- Extract all the objects from the input JSON array
-				DECLARE @jsonDataObjects TABLE (JsonData NVARCHAR(MAX));
-				INSERT INTO @jsonDataObjects
-				SELECT [value]
-				FROM OPENJSON(@data);
-
-				DECLARE @jsonDataObject NVARCHAR(MAX);
-				DECLARE jsonDataCursor CURSOR FOR
-				SELECT JsonData
-				FROM @jsonDataObjects;
-
-				OPEN jsonDataCursor;
-				FETCH NEXT FROM jsonDataCursor INTO @jsonDataObject;
-
-				-- Append each extracted object to the existing JSON array
-				WHILE @@FETCH_STATUS = 0
-				BEGIN
-					SET @existingJson = JSON_MODIFY(@existingJson, 'append $', JSON_QUERY(@jsonDataObject));
-					FETCH NEXT FROM jsonDataCursor INTO @jsonDataObject;
-				END;
-
-				CLOSE jsonDataCursor;
-				DEALLOCATE jsonDataCursor;
-
-				-- Update the JsonContent with the appended JSON array
-				UPDATE JobGeoTagging 
-				SET JsonContent = @existingJson
-				WHERE JobId = @JobId;
-			END
-		END
-    
-	--ALTER DATABASE [EKL_Packages_Uplift] SET RECOVERY FULL;
+    IF EXISTS (SELECT *
+               FROM   JobGeoTagging
+               WHERE  JobId = @JobId)
+        BEGIN
+            DECLARE @existingJson AS NVARCHAR (MAX);
+            SELECT @existingJson = JsonContent
+            FROM   JobGeoTagging
+            WHERE  JobId = @JobId;
+            IF @existingJson IS NULL
+                BEGIN
+                    UPDATE JobGeoTagging
+                    SET    JsonContent = @data
+                    WHERE  JobId = @JobId;
+                END
+            ELSE
+                BEGIN
+                    DECLARE @jsonDataObjects TABLE (
+                        JsonData NVARCHAR (MAX));
+                    INSERT INTO @jsonDataObjects
+                    SELECT [value]
+                    FROM   OPENJSON (@data);
+                    DECLARE @jsonDataObject AS NVARCHAR (MAX);
+                    DECLARE jsonDataCursor CURSOR
+                        FOR SELECT JsonData
+                            FROM   @jsonDataObjects;
+                    OPEN jsonDataCursor;
+                    FETCH NEXT FROM jsonDataCursor INTO @jsonDataObject;
+                    WHILE @@FETCH_STATUS = 0
+                        BEGIN
+                            SET @existingJson = JSON_MODIFY(@existingJson, 'append $', JSON_QUERY(@jsonDataObject));
+                            FETCH NEXT FROM jsonDataCursor INTO @jsonDataObject;
+                        END
+                    CLOSE jsonDataCursor;
+                    DEALLOCATE jsonDataCursor;
+                    UPDATE JobGeoTagging
+                    SET    JsonContent = @existingJson
+                    WHERE  JobId = @JobId;
+                END
+        END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UpdateJobsStats]    Script Date: 06/05/2025 12:22:21 pm ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UpdateJobsStats]    Script Date: 11/05/2025 2:33:31 am ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[Sp_UpdateJobsStats] 
-    
+CREATE PROCEDURE [dbo].[Sp_UpdateJobsStats]
 AS
 BEGIN
-   MERGE INTO JobStats AS Target
-USING (
-SELECT 
-    j.Id as JobId,
-	s.TenantId,
-	j.ProductionDate,
-	s.LoadscanPending,
-	s.LoadscanProblem,
-	s.LoadscanSuccess,
-	s.DeliveryPending -s.LoadscanProblem as DeliveryPending,
-	s.DeliveryProblem,
-	s.DeliverySuccess,
-	s.PickupPending,
-	s.PickupProblem,
-	s.PickupSuccess,
-	s.OffloadPending -(s.DeliverySuccess + s.DeliveryPending + s.PickupProblem) as OffloadPending ,
-	s.OffloadProblem,
-	s.OffloadSuccess,
-	s.CompletedStops,
-	s.PendingStop,
-	s.ProblemStops,
-	s.OverallStops,
-	(s.LoadscanSuccess+s.PickupSuccess) as TruckIn,
-	(s.DeliverySuccess+s.OffloadSuccess) as TruckOut,
-	s.PackagingSacks,
-	s.PackagingCages,
-	s.PackagingPallets,
-	s.DeliveredPackagingCages,
-	s.DeliveredPackagingPallets,
-	s.DeliveredPackagingSacks
-
-
-FROM Job j
-inner JOIN (select  
--- Loadscan section
- Count(CASE WHEN (ServiceDetail.Action='Delivery' and ss.Status is null  AND sc.ProductContainerId in('DAD424A9-CABF-49C0-8C13-F08E778B7F0E','F2358F1B-C1B6-4CF8-AD65-137A6FA2E922','33046DA1-409F-4442-9924-B72CFD5AA552','D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932','3222FAA8-2817-4828-8C94-9CBB8D64E2E9','F97B5D51-EA7B-454B-8058-418FC3210EC6','F79A2511-F18C-42D8-92F4-7BADE17D0B17','3D4817DD-4AE4-4945-B06D-1F963CB9F37D','6BB0400A-DAED-4338-A310-007431388A48','0A1AAC32-6AF0-4423-A7CD-4353B03917B2','7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F','7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1  ELSE NULL END) as LoadscanPending,
- Count(CASE WHEN ( ServiceDetail.Action='Delivery' and ss.Status is not null and ss.Status=4  AND sc.ProductContainerId in('DAD424A9-CABF-49C0-8C13-F08E778B7F0E','F2358F1B-C1B6-4CF8-AD65-137A6FA2E922','33046DA1-409F-4442-9924-B72CFD5AA552','D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932','3222FAA8-2817-4828-8C94-9CBB8D64E2E9','F97B5D51-EA7B-454B-8058-418FC3210EC6','F79A2511-F18C-42D8-92F4-7BADE17D0B17','3D4817DD-4AE4-4945-B06D-1F963CB9F37D','6BB0400A-DAED-4338-A310-007431388A48','0A1AAC32-6AF0-4423-A7CD-4353B03917B2','7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F','7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1  ELSE NULL END) as LoadscanProblem,
- Count(CASE WHEN ( ServiceDetail.Action='Delivery' and ss.Status is not null and ss.Status=3  AND sc.ProductContainerId in('DAD424A9-CABF-49C0-8C13-F08E778B7F0E','F2358F1B-C1B6-4CF8-AD65-137A6FA2E922','33046DA1-409F-4442-9924-B72CFD5AA552','D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932','3222FAA8-2817-4828-8C94-9CBB8D64E2E9','F97B5D51-EA7B-454B-8058-418FC3210EC6','F79A2511-F18C-42D8-92F4-7BADE17D0B17','3D4817DD-4AE4-4945-B06D-1F963CB9F37D','6BB0400A-DAED-4338-A310-007431388A48','0A1AAC32-6AF0-4423-A7CD-4353B03917B2','7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F','7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1  ELSE NULL END) as LoadscanSuccess,
- -- Loadscan End
-
- Count(CASE WHEN ( ServiceDetail.Action='Delivery' and  ss.Status is null and sc.ProductContainerId in('DCC54AA5-0C84-4379-867C-F78C29E98EB5','8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E') 
- )THEN 1  ELSE NULL END) as DeliveryPending,
- Count(CASE WHEN ( ServiceDetail.Action='Delivery' and ss.Status is not null and ss.Status=3 and sc.ProductContainerId in('DCC54AA5-0C84-4379-867C-F78C29E98EB5','8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E') 
- )THEN 1  ELSE NULL END) as DeliverySuccess,
- Count(CASE WHEN ( ServiceDetail.Action='Delivery' and ss.Status is not null and ss.Status=4  and sc.ProductContainerId in('DCC54AA5-0C84-4379-867C-F78C29E98EB5','8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E') 
- )THEN 1  ELSE NULL END) as DeliveryProblem,
-  -- Pickup section
- Count(CASE WHEN ( ServiceDetail.Action='Pickup' and  ss.Status is null and sc.ProductContainerId in('8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E','DCC54AA5-0C84-4379-867C-F78C29E98EB5') 
- )THEN 1  ELSE NULL END) as PickupPending,
- Count(CASE WHEN ( ServiceDetail.Action='Pickup' and ss.Status is not null and ss.Status=3 and sc.ProductContainerId in('8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E','DCC54AA5-0C84-4379-867C-F78C29E98EB5') 
- )THEN 1  ELSE NULL END) as PickupSuccess,
- Count(CASE WHEN ( ServiceDetail.Action='Pickup' and ss.Status is not null and ss.Status=4  and sc.ProductContainerId in('8B022DD1-8D0B-4C09-AD9A-F97838040E97','8725E679-2D64-43BE-8E73-A1725E46D08A'
- ,'6130CBFA-6389-4318-9514-E9CB874F8F75','A1D51666-8FC5-4B5C-9329-79F5FACB8AE5','E62E61FA-423D-4D6E-80CA-133DBF6D4004','C5170A1B-4F91-4414-AAEB-306D0520749A','D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B'
- ,'6B3E8533-1809-4653-B5E5-C124D5B48E41','90fd9406-e08d-4a28-8114-e6e0a0550330','D9A25BDD-060B-4EDC-9D44-AFD280110D91','264E1360-CC69-4E34-99CB-FFE2746DABB0','7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E','DCC54AA5-0C84-4379-867C-F78C29E98EB5') 
- )THEN 1  ELSE NULL END) as PickupProblem,
-  -- Pickup section End
-
-    -- Offload section
- Count(CASE WHEN (   ss.Status is null and sc.ProductContainerId in('839A9D6E-A0FD-494E-A9AE-8D16F58E0335','77547727-215D-46E4-9257-2E01604850D7','52D24E42-446C-4F2E-AF32-1765DE3668F5'
- ,'8AC59845-0020-4D36-96AD-46F5A3BAD3D9','B9E3B612-58A0-4FB8-BEC0-A044AC960705','0D43097D-4D1B-4761-B21F-4039D07D49E5','B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60','19357951-AA6D-4658-BC02-D53F1BD4CA20'
- ,'A1C9D1B7-D0AE-4F05-AC35-B939727A1788','D3073D3C-A538-464B-98EA-26690E9B547C','E9070B51-110F-4BFE-A3E9-981C4FA87D72','12C7EB59-AE18-4FF3-A48E-E58096A81A27') 
- )THEN 1  ELSE NULL END) as OffloadPending,
- Count(CASE WHEN (   ss.Status is not null and ss.Status=3 and sc.ProductContainerId in('839A9D6E-A0FD-494E-A9AE-8D16F58E0335','77547727-215D-46E4-9257-2E01604850D7','52D24E42-446C-4F2E-AF32-1765DE3668F5'
- ,'8AC59845-0020-4D36-96AD-46F5A3BAD3D9','B9E3B612-58A0-4FB8-BEC0-A044AC960705','0D43097D-4D1B-4761-B21F-4039D07D49E5','B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60','19357951-AA6D-4658-BC02-D53F1BD4CA20'
- ,'A1C9D1B7-D0AE-4F05-AC35-B939727A1788','D3073D3C-A538-464B-98EA-26690E9B547C','E9070B51-110F-4BFE-A3E9-981C4FA87D72','12C7EB59-AE18-4FF3-A48E-E58096A81A27') 
- )THEN 1  ELSE NULL END) as OffloadSuccess,
- Count(CASE WHEN (  ss.Status is not null and ss.Status=4  and sc.ProductContainerId in('839A9D6E-A0FD-494E-A9AE-8D16F58E0335','77547727-215D-46E4-9257-2E01604850D7','52D24E42-446C-4F2E-AF32-1765DE3668F5'
- ,'8AC59845-0020-4D36-96AD-46F5A3BAD3D9','B9E3B612-58A0-4FB8-BEC0-A044AC960705','0D43097D-4D1B-4761-B21F-4039D07D49E5','B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60','19357951-AA6D-4658-BC02-D53F1BD4CA20'
- ,'A1C9D1B7-D0AE-4F05-AC35-B939727A1788','D3073D3C-A538-464B-98EA-26690E9B547C','E9070B51-110F-4BFE-A3E9-981C4FA87D72','12C7EB59-AE18-4FF3-A48E-E58096A81A27') 
- )THEN 1  ELSE NULL END) as OffloadProblem,
-  -- Offload section End
-  --location Section
- Count(CASE WHEN (   ss.Status is null and sr.TypeId=7 
- )THEN 1  ELSE NULL END) as PendingStop,
- Count(CASE WHEN (   ss.Status is not null and ss.Status=3 and sr.TypeId=7
- )THEN 1  ELSE NULL END) as CompletedStops,
- Count(CASE WHEN (  ss.Status is not null and ss.Status=4 and sr.TypeId=7
- )THEN 1  ELSE NULL END) as ProblemStops,
-  Count(CASE WHEN ( sr.TypeId=7
- )THEN 1  ELSE NULL END) as OverallStops,
- --location section End
-
- --packaging section
-  sum(CASE WHEN (   ss.Status is not null and sr.TypeId=22 and sc.ParentContainerId in('6B98513D-24F6-43F4-B087-96F61930D532') 
- )THEN ss.Quantity ELSE 0 END) as PackagingSacks,
- sum(CASE WHEN (   ss.Status is not null and sr.TypeId=20 and sc.ParentContainerId in('6B98513D-24F6-43F4-B087-96F61930D532') 
- )THEN ss.Quantity ELSE 0 END) as PackagingCages,
- sum(CASE WHEN (   ss.Status is not null and sr.TypeId=21 and sc.ParentContainerId in('6B98513D-24F6-43F4-B087-96F61930D532') 
- )THEN ss.Quantity ELSE 0 END) as PackagingPallets,
-  sum(CASE WHEN (   ss.Status is not null and sr.TypeId=22 and sc.ParentContainerId in('B71255CC-6F14-4E00-AA20-37C5B5B49D62') 
- )THEN ss.Quantity ELSE 0 END) as DeliveredPackagingSacks,
- sum(CASE WHEN (   ss.Status is not null and sr.TypeId=20 and sc.ParentContainerId in('B71255CC-6F14-4E00-AA20-37C5B5B49D62') 
- )THEN ss.Quantity ELSE 0 END) as DeliveredPackagingCages,
- sum(CASE WHEN (   ss.Status is not null and sr.TypeId=21 and sc.ParentContainerId in('B71255CC-6F14-4E00-AA20-37C5B5B49D62') 
- )THEN ss.Quantity ELSE 0 END) as DeliveredPackagingPallets,
-
- --packaging end 
-
- sr.JobId ,
- sr.TenantId
-
-from ServiceContainerMapping sc
-left join ServiceDetail on sc.ServiceId=ServiceDetail.Id
-inner JOIN Service sr ON sr.Id = sc.ServiceId
-left JOIN ServiceStatus ss ON sc.Id = ss.Id
-group by sr.JobId ,sr.TenantId
-) s ON j.Id = s.JobId
-group  by j.Id,
-	s.TenantId,
-
-	j.ProductionDate,
-	s.LoadscanPending,
-	s.LoadscanProblem,
-	s.LoadscanSuccess,
-	s.DeliveryPending,
-	s.DeliveryProblem,
-	s.DeliverySuccess,
-	s.PickupPending,
-	s.PickupProblem,
-	s.PickupSuccess,
-	s.OffloadPending,
-	s.OffloadProblem,
-	s.OffloadSuccess,
-	s.TenantId,s.CompletedStops,
-	s.PendingStop,
-	s.ProblemStops,
-	s.OverallStops,
-	s.PackagingSacks,
-	s.PackagingCages,
-	s.PackagingPallets,
-	s.DeliveredPackagingCages,
-	s.DeliveredPackagingPallets,
-	s.DeliveredPackagingSacks
-
-	)as Source
-
-	ON Target.JobId = Source.JobId
-
-	WHEN MATCHED THEN 
-    UPDATE SET 
-	
-			  Target.LoadscanPending = Source.LoadscanPending, 
-			  Target.LoadscanProblem= Source.LoadscanProblem,
-			  Target.LoadscanSuccess  = Source.LoadscanSuccess,  
-			  Target.DeliveryPending  = Source.DeliveryPending,  
-			  Target.DeliveryProblem  = Source.DeliveryProblem , 
-			  Target.DeliverySuccess = Source.DeliverySuccess, 
-			  Target.PickupPending = Source.PickupPending, 
-			  Target.PickupProblem  = Source.PickupProblem , 
-			  Target.PickupSuccess= Source.PickupSuccess,
-			  Target.OffloadPending = Source.OffloadPending ,
-			  Target.OffloadProblem = Source.OffloadProblem, 
-			  Target.OffloadSuccess = Source.OffloadSuccess ,
-			  Target.CompletedStops = Source.CompletedStops, 
-			  Target.PendingStop = Source.PendingStop ,
-			  Target.ProblemStops = Source.ProblemStops ,
-			  Target.OverallStops = Source.OverallStops, 
-			  Target.TruckIn  = Source.TruckIn , 
-			  Target.TruckOut = Source.TruckOut, 
-			  Target.PackagingSacks  = Source.PackagingSacks , 
-			  Target.PackagingCages  = Source.PackagingCages , 
-			  Target.PackagingPallets  = Source.PackagingPallets , 
-			  Target.DeliveredPackagingCages = Source.DeliveredPackagingCages , 
-			  Target.DeliveredPackagingPallets= Source.DeliveredPackagingPallets, 
-			  Target.DeliveredPackagingSacks = Source.DeliveredPackagingSacks 
-			   
-WHEN NOT MATCHED BY TARGET THEN 
-    INSERT (Id,JobId,TenantId,ProductionDate,
-	LoadscanPending, 
-	LoadscanProblem,  
-	LoadscanSuccess,  
-	DeliveryPending,  
-	DeliveryProblem , 
-	DeliverySuccess, 
-	PickupPending, 
-	PickupProblem , 
-	PickupSuccess,
-	OffloadPending ,
-	OffloadProblem, 
-	OffloadSuccess ,
-	CompletedStops, 
-	PendingStop ,
-	ProblemStops ,
-	OverallStops, 
-	TruckIn , 
-	TruckOut, 
-	PackagingSacks , 
-	PackagingCages , 
-	PackagingPallets , 
-	DeliveredPackagingCages ,
-	DeliveredPackagingPallets,
-	DeliveredPackagingSacks )
-
-    VALUES (
-	newid(),
-	Source.JobId, 
-	Source.TenantId, 
-	Source.ProductionDate, 
-	Source.LoadscanPending, 
-			 Source.LoadscanProblem,
-			 Source.LoadscanSuccess,  
-			 Source.DeliveryPending,  
-			 Source.DeliveryProblem , 
-			 Source.DeliverySuccess, 
-			 Source.PickupPending, 
-			 Source.PickupProblem , 
-			 Source.PickupSuccess,
-			 Source.OffloadPending ,
-			 Source.OffloadProblem, 
-			 Source.OffloadSuccess ,
-			 Source.CompletedStops, 
-			 Source.PendingStop ,
-			 Source.ProblemStops ,
-			 Source.OverallStops, 
-			 Source.TruckIn , 
-			 Source.TruckOut, 
-			 Source.PackagingSacks , 
-			 Source.PackagingCages , 
-			 Source.PackagingPallets , 
-			 Source.DeliveredPackagingCages ,
-			 Source.DeliveredPackagingPallets,
-			 Source.DeliveredPackagingSacks );
-
-END;
+    MERGE INTO JobStats
+     AS Target
+    USING (SELECT   j.Id AS JobId,
+                    s.TenantId,
+                    j.ProductionDate,
+                    s.LoadscanPending,
+                    s.LoadscanProblem,
+                    s.LoadscanSuccess,
+                    s.DeliveryPending - s.LoadscanProblem AS DeliveryPending,
+                    s.DeliveryProblem,
+                    s.DeliverySuccess,
+                    s.PickupPending,
+                    s.PickupProblem,
+                    s.PickupSuccess,
+                    s.OffloadPending - (s.DeliverySuccess + s.DeliveryPending + s.PickupProblem) AS OffloadPending,
+                    s.OffloadProblem,
+                    s.OffloadSuccess,
+                    s.CompletedStops,
+                    s.PendingStop,
+                    s.ProblemStops,
+                    s.OverallStops,
+                    (s.LoadscanSuccess + s.PickupSuccess) AS TruckIn,
+                    (s.DeliverySuccess + s.OffloadSuccess) AS TruckOut,
+                    s.PackagingSacks,
+                    s.PackagingCages,
+                    s.PackagingPallets,
+                    s.DeliveredPackagingCages,
+                    s.DeliveredPackagingPallets,
+                    s.DeliveredPackagingSacks
+           FROM     Job AS j
+                    INNER JOIN
+                    (SELECT   Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NULL
+                                               AND sc.ProductContainerId IN ('DAD424A9-CABF-49C0-8C13-F08E778B7F0E', 'F2358F1B-C1B6-4CF8-AD65-137A6FA2E922', '33046DA1-409F-4442-9924-B72CFD5AA552', 'D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932', '3222FAA8-2817-4828-8C94-9CBB8D64E2E9', 'F97B5D51-EA7B-454B-8058-418FC3210EC6', 'F79A2511-F18C-42D8-92F4-7BADE17D0B17', '3D4817DD-4AE4-4945-B06D-1F963CB9F37D', '6BB0400A-DAED-4338-A310-007431388A48', '0A1AAC32-6AF0-4423-A7CD-4353B03917B2', '7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F', '7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1 ELSE NULL END) AS LoadscanPending,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 4
+                                               AND sc.ProductContainerId IN ('DAD424A9-CABF-49C0-8C13-F08E778B7F0E', 'F2358F1B-C1B6-4CF8-AD65-137A6FA2E922', '33046DA1-409F-4442-9924-B72CFD5AA552', 'D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932', '3222FAA8-2817-4828-8C94-9CBB8D64E2E9', 'F97B5D51-EA7B-454B-8058-418FC3210EC6', 'F79A2511-F18C-42D8-92F4-7BADE17D0B17', '3D4817DD-4AE4-4945-B06D-1F963CB9F37D', '6BB0400A-DAED-4338-A310-007431388A48', '0A1AAC32-6AF0-4423-A7CD-4353B03917B2', '7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F', '7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1 ELSE NULL END) AS LoadscanProblem,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 3
+                                               AND sc.ProductContainerId IN ('DAD424A9-CABF-49C0-8C13-F08E778B7F0E', 'F2358F1B-C1B6-4CF8-AD65-137A6FA2E922', '33046DA1-409F-4442-9924-B72CFD5AA552', 'D1B20A2D-E38A-4A9B-AFEC-870AB1AE4932', '3222FAA8-2817-4828-8C94-9CBB8D64E2E9', 'F97B5D51-EA7B-454B-8058-418FC3210EC6', 'F79A2511-F18C-42D8-92F4-7BADE17D0B17', '3D4817DD-4AE4-4945-B06D-1F963CB9F37D', '6BB0400A-DAED-4338-A310-007431388A48', '0A1AAC32-6AF0-4423-A7CD-4353B03917B2', '7E9021F6-C6E3-40AE-AFAD-A10B607D8D1F', '7B2C8884-43F2-4332-B203-F409163E3FDB')) THEN 1 ELSE NULL END) AS LoadscanSuccess,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NULL
+                                               AND sc.ProductContainerId IN ('DCC54AA5-0C84-4379-867C-F78C29E98EB5', '8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E')) THEN 1 ELSE NULL END) AS DeliveryPending,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 3
+                                               AND sc.ProductContainerId IN ('DCC54AA5-0C84-4379-867C-F78C29E98EB5', '8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E')) THEN 1 ELSE NULL END) AS DeliverySuccess,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Delivery'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 4
+                                               AND sc.ProductContainerId IN ('DCC54AA5-0C84-4379-867C-F78C29E98EB5', '8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E')) THEN 1 ELSE NULL END) AS DeliveryProblem,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Pickup'
+                                               AND ss.Status IS NULL
+                                               AND sc.ProductContainerId IN ('8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E', 'DCC54AA5-0C84-4379-867C-F78C29E98EB5')) THEN 1 ELSE NULL END) AS PickupPending,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Pickup'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 3
+                                               AND sc.ProductContainerId IN ('8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E', 'DCC54AA5-0C84-4379-867C-F78C29E98EB5')) THEN 1 ELSE NULL END) AS PickupSuccess,
+                              Count(CASE WHEN (ServiceDetail.Action = 'Pickup'
+                                               AND ss.Status IS NOT NULL
+                                               AND ss.Status = 4
+                                               AND sc.ProductContainerId IN ('8B022DD1-8D0B-4C09-AD9A-F97838040E97', '8725E679-2D64-43BE-8E73-A1725E46D08A', '6130CBFA-6389-4318-9514-E9CB874F8F75', 'A1D51666-8FC5-4B5C-9329-79F5FACB8AE5', 'E62E61FA-423D-4D6E-80CA-133DBF6D4004', 'C5170A1B-4F91-4414-AAEB-306D0520749A', 'D8E872BA-F3E2-4EE6-9DA4-0DEA8E47C96B', '6B3E8533-1809-4653-B5E5-C124D5B48E41', '90fd9406-e08d-4a28-8114-e6e0a0550330', 'D9A25BDD-060B-4EDC-9D44-AFD280110D91', '264E1360-CC69-4E34-99CB-FFE2746DABB0', '7C2AEA08-F83D-4C01-91E0-19DCCC08AD2E', 'DCC54AA5-0C84-4379-867C-F78C29E98EB5')) THEN 1 ELSE NULL END) AS PickupProblem,
+                              Count(CASE WHEN (ss.Status IS NULL
+                                               AND sc.ProductContainerId IN ('839A9D6E-A0FD-494E-A9AE-8D16F58E0335', '77547727-215D-46E4-9257-2E01604850D7', '52D24E42-446C-4F2E-AF32-1765DE3668F5', '8AC59845-0020-4D36-96AD-46F5A3BAD3D9', 'B9E3B612-58A0-4FB8-BEC0-A044AC960705', '0D43097D-4D1B-4761-B21F-4039D07D49E5', 'B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60', '19357951-AA6D-4658-BC02-D53F1BD4CA20', 'A1C9D1B7-D0AE-4F05-AC35-B939727A1788', 'D3073D3C-A538-464B-98EA-26690E9B547C', 'E9070B51-110F-4BFE-A3E9-981C4FA87D72', '12C7EB59-AE18-4FF3-A48E-E58096A81A27')) THEN 1 ELSE NULL END) AS OffloadPending,
+                              Count(CASE WHEN (ss.Status IS NOT NULL
+                                               AND ss.Status = 3
+                                               AND sc.ProductContainerId IN ('839A9D6E-A0FD-494E-A9AE-8D16F58E0335', '77547727-215D-46E4-9257-2E01604850D7', '52D24E42-446C-4F2E-AF32-1765DE3668F5', '8AC59845-0020-4D36-96AD-46F5A3BAD3D9', 'B9E3B612-58A0-4FB8-BEC0-A044AC960705', '0D43097D-4D1B-4761-B21F-4039D07D49E5', 'B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60', '19357951-AA6D-4658-BC02-D53F1BD4CA20', 'A1C9D1B7-D0AE-4F05-AC35-B939727A1788', 'D3073D3C-A538-464B-98EA-26690E9B547C', 'E9070B51-110F-4BFE-A3E9-981C4FA87D72', '12C7EB59-AE18-4FF3-A48E-E58096A81A27')) THEN 1 ELSE NULL END) AS OffloadSuccess,
+                              Count(CASE WHEN (ss.Status IS NOT NULL
+                                               AND ss.Status = 4
+                                               AND sc.ProductContainerId IN ('839A9D6E-A0FD-494E-A9AE-8D16F58E0335', '77547727-215D-46E4-9257-2E01604850D7', '52D24E42-446C-4F2E-AF32-1765DE3668F5', '8AC59845-0020-4D36-96AD-46F5A3BAD3D9', 'B9E3B612-58A0-4FB8-BEC0-A044AC960705', '0D43097D-4D1B-4761-B21F-4039D07D49E5', 'B58D3D7A-BEAD-4C35-9665-BB2D21BD2E60', '19357951-AA6D-4658-BC02-D53F1BD4CA20', 'A1C9D1B7-D0AE-4F05-AC35-B939727A1788', 'D3073D3C-A538-464B-98EA-26690E9B547C', 'E9070B51-110F-4BFE-A3E9-981C4FA87D72', '12C7EB59-AE18-4FF3-A48E-E58096A81A27')) THEN 1 ELSE NULL END) AS OffloadProblem,
+                              Count(CASE WHEN (ss.Status IS NULL
+                                               AND sr.TypeId = 7) THEN 1 ELSE NULL END) AS PendingStop,
+                              Count(CASE WHEN (ss.Status IS NOT NULL
+                                               AND ss.Status = 3
+                                               AND sr.TypeId = 7) THEN 1 ELSE NULL END) AS CompletedStops,
+                              Count(CASE WHEN (ss.Status IS NOT NULL
+                                               AND ss.Status = 4
+                                               AND sr.TypeId = 7) THEN 1 ELSE NULL END) AS ProblemStops,
+                              Count(CASE WHEN (sr.TypeId = 7) THEN 1 ELSE NULL END) AS OverallStops,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 22
+                                             AND sc.ParentContainerId IN ('6B98513D-24F6-43F4-B087-96F61930D532')) THEN ss.Quantity ELSE 0 END) AS PackagingSacks,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 20
+                                             AND sc.ParentContainerId IN ('6B98513D-24F6-43F4-B087-96F61930D532')) THEN ss.Quantity ELSE 0 END) AS PackagingCages,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 21
+                                             AND sc.ParentContainerId IN ('6B98513D-24F6-43F4-B087-96F61930D532')) THEN ss.Quantity ELSE 0 END) AS PackagingPallets,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 22
+                                             AND sc.ParentContainerId IN ('B71255CC-6F14-4E00-AA20-37C5B5B49D62')) THEN ss.Quantity ELSE 0 END) AS DeliveredPackagingSacks,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 20
+                                             AND sc.ParentContainerId IN ('B71255CC-6F14-4E00-AA20-37C5B5B49D62')) THEN ss.Quantity ELSE 0 END) AS DeliveredPackagingCages,
+                              sum(CASE WHEN (ss.Status IS NOT NULL
+                                             AND sr.TypeId = 21
+                                             AND sc.ParentContainerId IN ('B71255CC-6F14-4E00-AA20-37C5B5B49D62')) THEN ss.Quantity ELSE 0 END) AS DeliveredPackagingPallets,
+                              sr.JobId,
+                              sr.TenantId
+                     FROM     ServiceContainerMapping AS sc
+                              LEFT OUTER JOIN
+                              ServiceDetail
+                              ON sc.ServiceId = ServiceDetail.Id
+                              INNER JOIN
+                              Service AS sr
+                              ON sr.Id = sc.ServiceId
+                              LEFT OUTER JOIN
+                              ServiceStatus AS ss
+                              ON sc.Id = ss.Id
+                     GROUP BY sr.JobId, sr.TenantId) AS s
+                    ON j.Id = s.JobId
+           GROUP BY j.Id, s.TenantId, j.ProductionDate, s.LoadscanPending, s.LoadscanProblem, s.LoadscanSuccess, s.DeliveryPending, s.DeliveryProblem, s.DeliverySuccess, s.PickupPending, s.PickupProblem, s.PickupSuccess, s.OffloadPending, s.OffloadProblem, s.OffloadSuccess, s.TenantId, s.CompletedStops, s.PendingStop, s.ProblemStops, s.OverallStops, s.PackagingSacks, s.PackagingCages, s.PackagingPallets, s.DeliveredPackagingCages, s.DeliveredPackagingPallets, s.DeliveredPackagingSacks) AS Source ON Target.JobId = Source.JobId
+    WHEN MATCHED THEN UPDATE 
+    SET Target.LoadscanPending           = Source.LoadscanPending,
+        Target.LoadscanProblem           = Source.LoadscanProblem,
+        Target.LoadscanSuccess           = Source.LoadscanSuccess,
+        Target.DeliveryPending           = Source.DeliveryPending,
+        Target.DeliveryProblem           = Source.DeliveryProblem,
+        Target.DeliverySuccess           = Source.DeliverySuccess,
+        Target.PickupPending             = Source.PickupPending,
+        Target.PickupProblem             = Source.PickupProblem,
+        Target.PickupSuccess             = Source.PickupSuccess,
+        Target.OffloadPending            = Source.OffloadPending,
+        Target.OffloadProblem            = Source.OffloadProblem,
+        Target.OffloadSuccess            = Source.OffloadSuccess,
+        Target.CompletedStops            = Source.CompletedStops,
+        Target.PendingStop               = Source.PendingStop,
+        Target.ProblemStops              = Source.ProblemStops,
+        Target.OverallStops              = Source.OverallStops,
+        Target.TruckIn                   = Source.TruckIn,
+        Target.TruckOut                  = Source.TruckOut,
+        Target.PackagingSacks            = Source.PackagingSacks,
+        Target.PackagingCages            = Source.PackagingCages,
+        Target.PackagingPallets          = Source.PackagingPallets,
+        Target.DeliveredPackagingCages   = Source.DeliveredPackagingCages,
+        Target.DeliveredPackagingPallets = Source.DeliveredPackagingPallets,
+        Target.DeliveredPackagingSacks   = Source.DeliveredPackagingSacks
+    WHEN NOT MATCHED BY TARGET THEN INSERT (Id, JobId, TenantId, ProductionDate, LoadscanPending, LoadscanProblem, LoadscanSuccess, DeliveryPending, DeliveryProblem, DeliverySuccess, PickupPending, PickupProblem, PickupSuccess, OffloadPending, OffloadProblem, OffloadSuccess, CompletedStops, PendingStop, ProblemStops, OverallStops, TruckIn, TruckOut, PackagingSacks, PackagingCages, PackagingPallets, DeliveredPackagingCages, DeliveredPackagingPallets, DeliveredPackagingSacks) VALUES (newid(), Source.JobId, Source.TenantId, Source.ProductionDate, Source.LoadscanPending, Source.LoadscanProblem, Source.LoadscanSuccess, Source.DeliveryPending, Source.DeliveryProblem, Source.DeliverySuccess, Source.PickupPending, Source.PickupProblem, Source.PickupSuccess, Source.OffloadPending, Source.OffloadProblem, Source.OffloadSuccess, Source.CompletedStops, Source.PendingStop, Source.ProblemStops, Source.OverallStops, Source.TruckIn, Source.TruckOut, Source.PackagingSacks, Source.PackagingCages, Source.PackagingPallets, Source.DeliveredPackagingCages, Source.DeliveredPackagingPallets, Source.DeliveredPackagingSacks);
+END
 GO
+ 

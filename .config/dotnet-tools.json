@@ -1,5 +1,13 @@
 {
   "version": 1,
   "isRoot": true,
-  "tools": {}
+  "tools": {
+    "dataflowkit.dbmigrator.cli": {
+      "version": "1.2.4",
+      "commands": [
+        "db-migrator"
+      ],
+      "rollForward": false
+    }
+  }
 }

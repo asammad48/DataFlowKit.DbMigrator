@@ -72,7 +72,7 @@ namespace DataFlowKit.DbMigrator.Common
             var appliedScript = appliedSet.Contains(Path.GetFileName(fileName));
             if (!appliedScript)
             {
-                File.Delete(fileName);
+                File.Delete(filePath);
                 Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Migration file deleted successfully.");
                 return;
             }

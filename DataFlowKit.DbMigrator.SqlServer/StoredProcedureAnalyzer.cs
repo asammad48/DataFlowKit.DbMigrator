@@ -4,8 +4,10 @@ using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.SqlServer.Models;
 using DataFlowKit.DbMigrator.SqlServer.TypesConverter;
 using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
 using System.Data;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace DataFlowKit.DbMigrator.SqlServer
 {
@@ -21,16 +23,29 @@ namespace DataFlowKit.DbMigrator.SqlServer
 
         public void GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO")
         {
-            var spDefinition = GetStoredProcDefinition(storedProcName);
-            var parameters = GetStoredProcParameters(storedProcName);
-            var resultSets = GetResultSetStructures(storedProcName, parameters);
-            string relativePathOfEntityFolder = "GeneratedModels";
-            if (CurrentCallInfo.IsEntityDirectoryRelativePath)
+            try
             {
-                relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+                Console.WriteLine($"{storedProcName} started");
+                var spDefinition = GetStoredProcDefinition(storedProcName);
+                Console.WriteLine($"{storedProcName} spDefinitions got.");
+                var parameters = GetStoredProcParameters(storedProcName);
+                Console.WriteLine($"{storedProcName} Parameters got.");
+                var resultSets = GetResultSetStructures(storedProcName, parameters);
+                Console.WriteLine($"{storedProcName} Result Set got.");
+                Console.WriteLine($"{storedProcName} :- {JsonConvert.SerializeObject(resultSets)}");
+                string relativePathOfEntityFolder = "GeneratedModels";
+                if (CurrentCallInfo.IsEntityDirectoryRelativePath)
+                {
+                    relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+                }
+                var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder);
+                File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
             }
-            var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder);
-            File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{storedProcName} Result Set got.");
+            }
+            
         }
 
         private string SanitizeName(string name)
@@ -159,8 +174,8 @@ namespace DataFlowKit.DbMigrator.SqlServer
         }
 
         private string GenerateClassFile(string storedProcName,
-                                       IEnumerable<ParameterInfo> parameters,
-                                       List<ResultSetInfo> resultSets, string relativePathOfEntityFolder)
+                               IEnumerable<ParameterInfo> parameters,
+                               List<ResultSetInfo> resultSets, string relativePathOfEntityFolder)
         {
             string namespaceName = relativePathOfEntityFolder.Replace("/", ".");
             var className = SanitizeName(storedProcName);
@@ -176,29 +191,36 @@ namespace DataFlowKit.DbMigrator.SqlServer
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
             sb.AppendLine();
-            sb.AppendLine($"namespace {relativePathOfEntityFolder}");
+            sb.AppendLine($"namespace {relativePathOfEntityFolder.Replace('/',',')}");
             sb.AppendLine("{");
 
-            // Generate request class
-            sb.AppendLine($"    public class {requestClassName}");
-            sb.AppendLine("    {");
+            // Check if we need to generate request class (has input parameters)
+            bool hasInputParameters = parameters.Any(p => !p.IsOutput && !p.IsTableType);
+            bool hasTableParameters = parameters.Any(p => p.IsTableType);
 
-            // Regular parameters
-            foreach (var param in parameters.Where(p => !p.IsOutput && !p.IsTableType))
+            if (hasInputParameters || hasTableParameters)
             {
-                var type = TypesConverterSql.MapSqlTypeToCSharp(param.ParameterType, param.IsNullable);
-                sb.AppendLine($"        public {type} {param.ParameterName} {{ get; set; }}");
-            }
+                // Generate request class
+                sb.AppendLine($"    public class {requestClassName}");
+                sb.AppendLine("    {");
 
-            // TVP parameters
-            foreach (var param in parameters.Where(p => p.IsTableType))
-            {
-                var tvpClassName = $"{SanitizeName(param.ParameterName)}TableType";
-                sb.AppendLine($"        public IEnumerable<{tvpClassName}> {param.ParameterName} {{ get; set; }}");
-            }
+                // Regular parameters
+                foreach (var param in parameters.Where(p => !p.IsOutput && !p.IsTableType))
+                {
+                    var type = TypesConverterSql.MapSqlTypeToCSharp(param.ParameterType, param.IsNullable);
+                    sb.AppendLine($"        public {type} {param.ParameterName} {{ get; set; }}");
+                }
 
-            sb.AppendLine("    }");
-            sb.AppendLine();
+                // TVP parameters
+                foreach (var param in parameters.Where(p => p.IsTableType))
+                {
+                    var tvpClassName = $"{SanitizeName(param.ParameterName)}TableType";
+                    sb.AppendLine($"        public IEnumerable<{tvpClassName}> {param.ParameterName} {{ get; set; }}");
+                }
+
+                sb.AppendLine("    }");
+                sb.AppendLine();
+            }
 
             // Generate TVP classes
             foreach (var param in parameters.Where(p => p.IsTableType))
@@ -217,28 +239,35 @@ namespace DataFlowKit.DbMigrator.SqlServer
                 sb.AppendLine();
             }
 
-            // Generate response class
-            sb.AppendLine($"    public class {responseClassName}");
-            sb.AppendLine("    {");
+            // Check if we need to generate response class (has output parameters or result sets)
+            bool hasOutputParameters = parameters.Any(p => p.IsOutput);
+            bool hasResultSets = resultSets.Any();
 
-            // Output parameters
-            foreach (var param in parameters.Where(p => p.IsOutput))
+            if (hasOutputParameters || hasResultSets)
             {
-                var type = TypesConverterSql.MapSqlTypeToCSharp(param.ParameterType, param.IsNullable);
-                sb.AppendLine($"        public {type} {param.ParameterName} {{ get; set; }}");
+                // Generate response class
+                sb.AppendLine($"    public class {responseClassName}");
+                sb.AppendLine("    {");
+
+                // Output parameters
+                foreach (var param in parameters.Where(p => p.IsOutput))
+                {
+                    var type = TypesConverterSql.MapSqlTypeToCSharp(param.ParameterType, param.IsNullable);
+                    sb.AppendLine($"        public {type} {param.ParameterName} {{ get; set; }}");
+                }
+
+                // Result sets
+                for (int i = 0; i < resultSets.Count; i++)
+                {
+                    var resultSet = resultSets[i];
+                    var resultSetClassName = $"{className}ResultSet{i + 1}";
+
+                    sb.AppendLine($"        public List<{resultSetClassName}> ResultSet{i + 1} {{ get; set; }}");
+                }
+
+                sb.AppendLine("    }");
+                sb.AppendLine();
             }
-
-            // Result sets
-            for (int i = 0; i < resultSets.Count; i++)
-            {
-                var resultSet = resultSets[i];
-                var resultSetClassName = $"{className}ResultSet{i + 1}";
-
-                sb.AppendLine($"        public List<{resultSetClassName}> ResultSet{i + 1} {{ get; set; }}");
-            }
-
-            sb.AppendLine("    }");
-            sb.AppendLine();
 
             // Generate result set classes
             for (int i = 0; i < resultSets.Count; i++)
@@ -254,13 +283,14 @@ namespace DataFlowKit.DbMigrator.SqlServer
                     sb.AppendLine($"        public {type} {col.ColumnName} {{ get; set; }}");
                 }
                 sb.AppendLine("    }");
-                sb.AppendLine();
+                if (i < resultSets.Count - 1) sb.AppendLine();
             }
 
             sb.AppendLine("}");
 
             return sb.ToString();
         }
+
 
 
     }

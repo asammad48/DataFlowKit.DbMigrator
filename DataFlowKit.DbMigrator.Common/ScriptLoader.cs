@@ -9,7 +9,7 @@ namespace DataFlowKit.DbMigrator.Common
             try
             {
                 var scripts = new List<MigrationScript>();
-                var files = Directory.GetFiles(migrationPath, "*.sql", SearchOption.AllDirectories);
+                var files = Directory.GetFiles(migrationPath, "*.sql", SearchOption.TopDirectoryOnly);
                 if (files == null || files.Count() == 0)
                 {
                     throw new InvalidOperationException($"No file found in the migration folder : '{migrationPath}'.");
