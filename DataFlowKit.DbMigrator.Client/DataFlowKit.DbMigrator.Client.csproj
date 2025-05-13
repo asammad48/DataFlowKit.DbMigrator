@@ -13,4 +13,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\DataFlowKit.DbMigrator\DataFlowKit.DbMigrator.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="SpEntity\" />
+	</ItemGroup>
 </Project>

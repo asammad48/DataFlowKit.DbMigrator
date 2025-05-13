@@ -25,14 +25,9 @@ namespace DataFlowKit.DbMigrator.SqlServer
         {
             try
             {
-                Console.WriteLine($"{storedProcName} started");
                 var spDefinition = GetStoredProcDefinition(storedProcName);
-                Console.WriteLine($"{storedProcName} spDefinitions got.");
                 var parameters = GetStoredProcParameters(storedProcName);
-                Console.WriteLine($"{storedProcName} Parameters got.");
                 var resultSets = GetResultSetStructures(storedProcName, parameters);
-                Console.WriteLine($"{storedProcName} Result Set got.");
-                Console.WriteLine($"{storedProcName} :- {JsonConvert.SerializeObject(resultSets)}");
                 string relativePathOfEntityFolder = "GeneratedModels";
                 if (CurrentCallInfo.IsEntityDirectoryRelativePath)
                 {
@@ -45,7 +40,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
             {
                 Console.WriteLine($"{storedProcName} Result Set got.");
             }
-            
+
         }
 
         private string SanitizeName(string name)
@@ -177,12 +172,15 @@ namespace DataFlowKit.DbMigrator.SqlServer
                                IEnumerable<ParameterInfo> parameters,
                                List<ResultSetInfo> resultSets, string relativePathOfEntityFolder)
         {
-            string namespaceName = relativePathOfEntityFolder.Replace("/", ".");
             var className = SanitizeName(storedProcName);
             var requestClassName = $"{className}Request";
             var responseClassName = $"{className}Response";
 
             var sb = new StringBuilder();
+
+            parameters.ToList().ForEach(x => x.ParameterName = x.ParameterName.Replace("@", ""));
+
+            resultSets.ForEach(x => x.Columns.ToList().ForEach(y => y.ColumnName = string.IsNullOrEmpty(y.ColumnName) ? y.ColumnName : char.ToUpper(y.ColumnName[0]) + y.ColumnName.Substring(1)));
 
             // Add header
             sb.AppendLine("// Auto-generated code");
@@ -191,7 +189,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
             sb.AppendLine();
-            sb.AppendLine($"namespace {relativePathOfEntityFolder.Replace('/',',')}");
+            sb.AppendLine($"namespace {relativePathOfEntityFolder.Replace('/', '.')}");
             sb.AppendLine("{");
 
             // Check if we need to generate request class (has input parameters)
