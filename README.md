@@ -4,7 +4,7 @@
 
 ## **Overview** 📖  
 **DataFlowKit.DbMigrator** is a flexible database migration tool that supports:  
-✔ **SQL Server & PostgreSQL**  
+✔ **SQL Server & MySql**  
 ✔ **Environment-based migrations** (QA/Test/Prod)  
 ✔ **CLI & Programmatic execution**  
 ✔ **Stored Procedure Model Generation**  
@@ -58,7 +58,7 @@ dotnet add package DataFlowKit.DbMigrator
 {
   "DapperMigrator": {
     "EnvironmentName": "QA",  // Default: "All"
-    "ProviderName": "sqlserver",  // "sqlserver" or "postgresql"
+    "ProviderName": "sqlserver",  // "sqlserver" or "mysql"
     "MigrationProject": "MyApp.Data",
     "MigrationDirectory": "Migrations",
     "EntityProject": "MyApp.Data",
@@ -85,7 +85,7 @@ dotnet add package DataFlowKit.DbMigrator
 dotnet db-migrator add-migration \
   --name "CreateUserTable" \
   --startup "MyApp.Data" \
-  [--provider sqlserver|postgresql] \
+  [--provider sqlserver|mysql] \
   [--environment QA|Test|Prod] \
   [--output-dir "Custom/Migrations/Path"]
 ```
@@ -94,7 +94,7 @@ dotnet db-migrator add-migration \
 |-----------------|-----------|-------------------------|-------------|
 | `--name`        | ✅ Yes    | *(None)*                | Migration name (e.g., `"AddUserTable"`) |
 | `--startup`     | ✅ Yes    | *(None)*                | Startup project (where `appsettings.json` lives) |
-| `--provider`    | ❌ Optional | `sqlserver` (from config) | Database provider (`sqlserver`/`postgresql`) |
+| `--provider`    | ❌ Optional | `sqlserver` (from config) | Database provider (`sqlserver`/`mysql`) |
 | `--environment` | ❌ Optional | `All` (from config)     | Target environment (`QA`/`Test`/`Prod`) |
 | `--output-dir`  | ❌ Optional | `MigrationProject + MigrationDirectory` (from config) | Custom path for migration files |
 
@@ -112,7 +112,7 @@ dotnet db-migrator add-migration --name "AddUserTable" --startup "MyApp.Data"
 ```sh
 dotnet db-migrator validate-scripts \
   --startup "MyApp.Data" \
-  [--provider sqlserver|postgresql] \
+  [--provider sqlserver|mysql] \
   [--environment QA|Test|Prod] \
   [--connection "Server=..."]  # Overrides appsettings.json
 ```  
@@ -135,7 +135,7 @@ dotnet db-migrator validate-scripts --startup "MyApp.Data"
 ```sh
 dotnet db-migrator update-database \
   --startup "MyApp.Data" \
-  [--provider sqlserver|postgresql] \
+  [--provider sqlserver|mysql] \
   [--environment QA|Test|Prod]
 ```  
 | Parameter        | Required? | Default Value           | Description |
