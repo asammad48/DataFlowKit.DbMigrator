@@ -64,17 +64,17 @@ namespace DataFlowKit.DbMigrator.MySql
             };
 
             var result = connection.Query<ParameterInfo>(@"
-SELECT 
-    PARAMETER_NAME AS ParameterName,
-    DATA_TYPE AS ParameterType,
-    CHARACTER_MAXIMUM_LENGTH AS MaxLength,
-    IFNULL(NUMERIC_PRECISION, 0) AS `Precision`,
-    IFNULL(NUMERIC_SCALE, 0) AS Scale,
-    IF(PARAMETER_MODE = 'OUT', TRUE, FALSE) AS IsOutput
-FROM information_schema.PARAMETERS
-WHERE SPECIFIC_NAME = @ProcName
-AND SPECIFIC_SCHEMA = @DatabaseName  -- Filter by database name
-ORDER BY ORDINAL_POSITION;", parameters);
+                        SELECT 
+                            PARAMETER_NAME AS ParameterName,
+                            DATA_TYPE AS ParameterType,
+                            CHARACTER_MAXIMUM_LENGTH AS MaxLength,
+                            IFNULL(NUMERIC_PRECISION, 0) AS `Precision`,
+                            IFNULL(NUMERIC_SCALE, 0) AS Scale,
+                            IF(PARAMETER_MODE = 'OUT', TRUE, FALSE) AS IsOutput
+                        FROM information_schema.PARAMETERS
+                        WHERE SPECIFIC_NAME = @ProcName
+                        AND SPECIFIC_SCHEMA = @DatabaseName  -- Filter by database name
+                        ORDER BY ORDINAL_POSITION;", parameters);
             return result;
 
         }
