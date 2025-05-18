@@ -9,9 +9,11 @@
 		<Authors>Abdul Sammad</Authors>
 		<Description>CLI tool for DB migrations</Description>
 		<PackageOutputPath>D:\local.nuget</PackageOutputPath>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="LICENSE.md" Pack="true" PackagePath="" />
 		<ProjectReference Include="..\DataFlowKit.DbMigrator.Common\DataFlowKit.DbMigrator.Common.csproj" />
 		<ProjectReference Include="..\DataFlowKit.DbMigrator.MySql\DataFlowKit.DbMigrator.MySql.csproj" />
 		<ProjectReference Include="..\DataFlowKit.DbMigrator.SqlServer\DataFlowKit.DbMigrator.SqlServer.csproj" />
