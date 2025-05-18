@@ -1,5 +1,6 @@
 ﻿using DataFlowKit.DbMigrator.Common.Interfaces;
-using DataFlowKit.DbMigrator.PostgreSql.Providers;
+using DataFlowKit.DbMigrator.MySql;
+//using DataFlowKit.DbMigrator.PostgreSql;
 using DataFlowKit.DbMigrator.SqlServer;
 
 namespace DataFlowKit.DbMigrator
@@ -11,7 +12,8 @@ namespace DataFlowKit.DbMigrator
             return provider.ToLower() switch
             {
                 "sqlserver" => new SqlServerMigrationProvider(connectionString),
-                "postgres" => new PostgreSqlMigrationProvider(connectionString),
+               // "postgres" => new PostgreSqlMigrationProvider(connectionString),
+                "mysql" => new MySqlMigrationProvider(connectionString),
                 _ => throw new NotSupportedException($"Provider '{provider}' is not supported.")
             };
         }

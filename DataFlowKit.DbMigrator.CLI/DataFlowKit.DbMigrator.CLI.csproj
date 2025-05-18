@@ -6,7 +6,7 @@
 	  <PackAsTool>true</PackAsTool>
 	  <ToolCommandName>db-migrator</ToolCommandName>
 	  <PackageId>DataFlowKit.DbMigrator.CLI</PackageId>
-	  <Version>1.2.7</Version>
+	  <Version>0.1.0</Version>
 	  <Authors>Abdul Sammad</Authors>
 	  <Description>CLI tool for DB migrations</Description>
 	  <PackageOutputPath>D:\local.nuget</PackageOutputPath>
@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="DataFlowKit.DbMigrator" Version="1.2.7" />
+    <PackageReference Include="DataFlowKit.DbMigrator" Version="0.1.0" />
   </ItemGroup>
 
 </Project>

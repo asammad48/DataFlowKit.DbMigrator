@@ -7,13 +7,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DataFlowKit.DbMigrator" Version="1.2.1" />
+		<PackageReference Include="DataFlowKit.DbMigrator" Version="1.5.7" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\DataFlowKit.DbMigrator\DataFlowKit.DbMigrator.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Migrations\" />
 	  <Folder Include="SpEntity\" />
 	</ItemGroup>
 </Project>

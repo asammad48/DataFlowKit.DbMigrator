@@ -21,7 +21,7 @@ namespace DataFlowKit.DbMigrator.Common
 
                     var environments = ExtractEnvironments(fileName);
                     var isSeed = fileName.Contains("Seed", StringComparison.OrdinalIgnoreCase);
-                    var gitHash = GetGitCommitHash(file);
+                    //var gitHash = GetGitCommitHash(file);
 
                     scripts.Add(new MigrationScript
                     {
@@ -29,7 +29,7 @@ namespace DataFlowKit.DbMigrator.Common
                         Sql = sql,
                         IsSeed = isSeed,
                         Environments = environments,
-                        GitHash = gitHash
+                        GitHash = "0"
                     });
                 }
 
