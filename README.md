@@ -170,6 +170,35 @@ dotnet db-migrator remove-migration --name "00000001_AddUserTable_QA.sql" --star
 ```
 ---
 
+### **`mark-migration-applied`** 📌  
+**Marks a migration as applied without actually running it.**  
+
+**Use Case:**  
+Helpful when manually applying migrations (e.g., via SQL scripts) or syncing environments without re-running migrations.
+
+```sh
+dotnet db-migrator mark-migration-applied \
+  --name "MigrationName" \
+  --startup "MyApp.Data" \
+  [--output-dir "Custom/Migrations/Path"] \
+  [--connection "CustomConnectionString"] \
+  [--provider sqlserver|postgres]
+```  
+| Parameter         | Required? | Default Value           | Description |
+|------------------|-----------|-------------------------|-------------|
+| `--name`         | ✅ Yes    | *(None)*                | Name of the migration to mark as applied. |
+| `--startup`      | ✅ Yes    | *(None)*                | Startup project containing migrations. |
+| `--output-dir`   | ❌ Optional |  `MigrationProject + MigrationDirectory` (from config) | Custom migrations path |
+| `--connection`   | ❌ Optional | `DefaultConnection` (from config) | Custom connection string to the database. |
+| `--provider`     | ❌ Optional | `sqlserver` (from config) | Database provider (`sqlserver` or `postgres`). |
+
+**Example:**  
+```sh
+dotnet db-migrator mark-migration-applied --name "AddUserTable" --startup "MyApp.Data" --provider postgres
+```  
+---  
+
+
 ### **`sp-model-gen`** 📄  
 **Generates C# models for Stored Procedures.**  
 ```sh
@@ -192,8 +221,8 @@ dotnet db-migrator sp-model-gen \
 dotnet db-migrator sp-model-gen --name "GetUserById" --startup "MyApp.Data"
 ```
 📌 **Output:**  
-- `GetUserByIdRequest_DBO.cs`  
-- `GetUserByIdResponse_DBO.cs`  
+- `GetUserByIdRequestDBO.cs`  
+- `GetUserByIdResponseDBO.cs`  
 
 ---
 
