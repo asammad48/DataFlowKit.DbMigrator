@@ -53,7 +53,7 @@ namespace DataFlowKit.DbMigrator.MySql
             var combinedScript = $"CREATE DATABASE IF NOT EXISTS {migrationTestDB};\r\nUSE {migrationTestDB};";
             foreach (var script in scripts)
             {
-                combinedScript += script.Sql +"\r\n";
+                combinedScript += script.Sql + "\r\n";
             }
 
             combinedScript += $"\r\n DROP DATABASE IF EXISTS {migrationTestDB};";
@@ -155,9 +155,9 @@ namespace DataFlowKit.DbMigrator.MySql
             }
         }
 
-        public async Task GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO")
+        public async Task GenerateClassesFromStoredProc(GenerateStoredProcedureAnalyser storedProcedureModel)
         {
-            new StoredProcAnalyzer(_connectionString).GenerateClassesFromStoredProc(storedProcName, outputPath, namingConvention);
+            new StoredProcAnalyzer(_connectionString).GenerateClassesFromStoredProc(storedProcedureModel.StoredProcedureName, storedProcedureModel.OutputDirectory, storedProcedureModel.NamingConvention, storedProcedureModel.UseNestedModels, storedProcedureModel.GenerateXMLComments);
         }
     }
 }

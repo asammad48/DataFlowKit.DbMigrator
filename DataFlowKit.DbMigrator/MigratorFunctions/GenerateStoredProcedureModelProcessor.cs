@@ -21,7 +21,14 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                     opts.ConnectionString = DefaultValueProvider.GetConnectionString(opts.ConnectionString);
                     opts.NamingConvention = DefaultValueProvider.GetSpNamingConvention(opts.NamingConvention);
                     var provider = MigrationProviderFactory.Create(opts.Provider, opts.ConnectionString);
-                    provider.GenerateClassesFromStoredProc(opts.ProcedureName, opts.OutputDirectory, opts.NamingConvention);
+                    provider.GenerateClassesFromStoredProc(new GenerateStoredProcedureAnalyser()
+                    {
+                        GenerateXMLComments = opts.GenerateXMLComments,
+                        NamingConvention = opts.NamingConvention,
+                        OutputDirectory = opts.OutputDirectory,
+                        StoredProcedureName = opts.ProcedureName,
+                        UseNestedModels = opts.UseNestedModels
+                    });
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully.");
                 }
                 catch (Exception ex)

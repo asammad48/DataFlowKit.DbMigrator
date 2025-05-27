@@ -61,7 +61,9 @@ return Parser.Default.ParseArguments<
             Provider = opts.Provider,
             StartupProject = opts.StartupProject,
             NamingConvention = opts.NamingConvention,
-            ConnectionString = opts.ConnectionString
+            ConnectionString = opts.ConnectionString,
+            UseNestedModels = opts.UseNestedModels,
+            GenerateXMLComments = opts.GenerateXMLComments
         });
     },
     (RemoveMigrationCommand opts) =>

@@ -21,7 +21,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
             _connectionString = connectionString;
         }
 
-        public void GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO")
+        public void GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO", bool useNestedModels = true, bool generateXmlComments = false)
         {
             try
             {
@@ -31,14 +31,22 @@ namespace DataFlowKit.DbMigrator.SqlServer
                 string relativePathOfEntityFolder = "GeneratedModels";
                 if (CurrentCallInfo.IsEntityDirectoryRelativePath)
                 {
-                    relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+                    if (string.IsNullOrEmpty(outputPath))
+                    {
+                        relativePathOfEntityFolder = $"{DefaultValueProvider.GetSPProjectName()}/{DefaultValueProvider.GetSPFolderName()}";
+                    }
+                    else
+                    {
+                        relativePathOfEntityFolder = outputPath;
+                    }
                 }
-                var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder);
-                File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
+                var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder, useNestedModels, generateXmlComments);
+                DirectorySearcher.WriteTextToFile(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
+                //File.WriteAllText(Path.Combine(outputPath, $"{SanitizeName(storedProcName)}{namingConvention}.cs"), classCode);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{storedProcName} Result Set got.");
+                throw;
             }
 
         }
@@ -170,7 +178,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
 
         private string GenerateClassFile(string storedProcName,
                                IEnumerable<ParameterInfo> parameters,
-                               List<ResultSetInfo> resultSets, string relativePathOfEntityFolder)
+                               List<ResultSetInfo> resultSets, string relativePathOfEntityFolder, bool useNestedModels = false, bool useXmlComments = true)
         {
             var className = SanitizeName(storedProcName);
             var requestClassName = $"{className}Request";
@@ -183,8 +191,11 @@ namespace DataFlowKit.DbMigrator.SqlServer
             resultSets.ForEach(x => x.Columns.ToList().ForEach(y => y.ColumnName = string.IsNullOrEmpty(y.ColumnName) ? y.ColumnName : char.ToUpper(y.ColumnName[0]) + y.ColumnName.Substring(1)));
 
             // Add header
-            sb.AppendLine("// Auto-generated code");
-            sb.AppendLine("// Generated from stored procedure: " + storedProcName);
+            if (useXmlComments)
+            {
+                sb.AppendLine("// Auto-generated code");
+                sb.AppendLine("// Generated from stored procedure: " + storedProcName);
+            }
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
@@ -241,7 +252,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
             bool hasOutputParameters = parameters.Any(p => p.IsOutput);
             bool hasResultSets = resultSets.Any();
 
-            if (hasOutputParameters || hasResultSets)
+            if (hasOutputParameters || (hasResultSets && useNestedModels))
             {
                 // Generate response class
                 sb.AppendLine($"    public class {responseClassName}");
@@ -254,15 +265,17 @@ namespace DataFlowKit.DbMigrator.SqlServer
                     sb.AppendLine($"        public {type} {param.ParameterName} {{ get; set; }}");
                 }
 
-                // Result sets
-                for (int i = 0; i < resultSets.Count; i++)
+                if (useNestedModels)
                 {
-                    var resultSet = resultSets[i];
-                    var resultSetClassName = $"{className}ResultSet{i + 1}";
+                    // Result sets
+                    for (int i = 0; i < resultSets.Count; i++)
+                    {
+                        var resultSet = resultSets[i];
+                        var resultSetClassName = $"{className}ResultSet{i + 1}";
 
-                    sb.AppendLine($"        public List<{resultSetClassName}> ResultSet{i + 1} {{ get; set; }}");
+                        sb.AppendLine($"        public List<{resultSetClassName}> ResultSet{i + 1} {{ get; set; }}");
+                    }
                 }
-
                 sb.AppendLine("    }");
                 sb.AppendLine();
             }

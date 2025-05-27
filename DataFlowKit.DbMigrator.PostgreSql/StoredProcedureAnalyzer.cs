@@ -14,7 +14,7 @@ namespace DataFlowKit.DbMigrator.PostgreSql
             _connectionString = connectionString;
         }
 
-        public void GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "public")
+        public void GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "public",bool useNestedModels = true, bool generateXmlComments = false)
         {
             var parameters = GetProcedureParameters(storedProcName, namingConvention);
             var resultSet = GetResultSetColumns(storedProcName, namingConvention);

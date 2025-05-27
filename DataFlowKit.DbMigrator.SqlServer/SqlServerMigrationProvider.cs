@@ -230,9 +230,9 @@ namespace DataFlowKit.DbMigrator.SqlServer
 
 
         }
-        public async Task GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "DBO")
+        public async Task GenerateClassesFromStoredProc(GenerateStoredProcedureAnalyser storedProcedureModel)
         {
-            new StoredProcAnalyzer(connectionString: _connectionString).GenerateClassesFromStoredProc(storedProcName, outputPath, namingConvention);
+            new StoredProcAnalyzer(connectionString: _connectionString).GenerateClassesFromStoredProc(storedProcedureModel.StoredProcedureName, storedProcedureModel.OutputDirectory, storedProcedureModel.NamingConvention, storedProcedureModel.UseNestedModels, storedProcedureModel.GenerateXMLComments);
         }
     }
 

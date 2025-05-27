@@ -339,10 +339,10 @@ namespace DataFlowKit.DbMigrator.PostgreSql
             }
         }
 
-        public async Task GenerateClassesFromStoredProc(string storedProcName, string outputPath = "", string namingConvention = "public")
+        public async Task GenerateClassesFromStoredProc(GenerateStoredProcedureAnalyser storedProcedureModel)
         {
             new StoredProcAnalyzer(connectionString: _connectionString)
-                .GenerateClassesFromStoredProc(storedProcName, outputPath, namingConvention);
+                .GenerateClassesFromStoredProc(storedProcedureModel.StoredProcedureName, storedProcedureModel.OutputDirectory, storedProcedureModel.NamingConvention, storedProcedureModel.UseNestedModels, storedProcedureModel.GenerateXMLComments);
         }
     }
 }

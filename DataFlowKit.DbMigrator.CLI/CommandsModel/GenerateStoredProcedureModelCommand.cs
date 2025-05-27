@@ -16,5 +16,11 @@ namespace DataFlowKit.DbMigrator.CLI.CommandsModel
 
         [Option("connection", Required = false, HelpText = "Connection string to the database.")]
         public string ConnectionString { get; set; }
+
+        [Option("use-nested-models", Required = false, HelpText = "Generate response models with nested object types.")]
+        public bool UseNestedModels { get; set; }
+
+        [Option("gen-xml-comments", Required = false, HelpText = "Generate xml comments for generated class.")]
+        public bool GenerateXMLComments { get; set; }
     }
 }

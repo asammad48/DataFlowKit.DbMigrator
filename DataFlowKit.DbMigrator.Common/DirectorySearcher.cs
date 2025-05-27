@@ -62,5 +62,39 @@ namespace DataFlowKit.DbMigrator.Common
                 throw;
             }
         }
+
+        public static void WriteTextToFile(string filePath, string classCode)
+        {
+            try
+            {
+                string fileName = Path.GetFileName(filePath);
+
+                if (File.Exists(fileName))
+                {
+                    Console.WriteLine($"File '{fileName}' already exists. Do you want to overwrite it? (y/n):");
+                    string input = Console.ReadLine()?.Trim().ToLower();
+
+                    if (input == "y")
+                    {
+                        File.WriteAllText(fileName, classCode);
+                        Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: File overwritten successfully at path {filePath}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Skipped updating the file at path {filePath}.");
+                    }
+                }
+                else
+                {
+                    File.WriteAllText(fileName, classCode);
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: File created successfully at path {filePath}.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -13,8 +13,12 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                 CurrentCallInfo.ScriptName = RunningScriptType.AddMigration;
                 try
                 {
+                    if (string.IsNullOrEmpty(opts.Environment))
+                    {
+                        opts.Environment = "All";
+                    }
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process started.");
-                    opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
+                    //opts.Environment = DefaultValueProvider.GetEnvironmentName(opts.Environment);
                     opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath, true);
                     opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
                     var provider = MigrationProviderFactory.Create(opts.Provider, "");
