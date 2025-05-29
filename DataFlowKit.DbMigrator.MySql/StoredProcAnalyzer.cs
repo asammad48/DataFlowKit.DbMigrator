@@ -60,7 +60,7 @@ namespace DataFlowKit.DbMigrator.MySql
 
             var parts = name.Split(new[] { '_', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             return string.Join("", parts.Select(p =>
-                p.Length > 0 ? char.ToUpper(p[0]) + p.Substring(1).ToLower() : ""));
+                p.Length > 0 ? char.ToUpper(p[0]) + p.Substring(1) : ""));
         }
 
         private IEnumerable<ParameterInfo> GetStoredProcParameters(string storedProcName)
