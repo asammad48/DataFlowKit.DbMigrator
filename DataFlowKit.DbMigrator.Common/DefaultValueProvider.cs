@@ -34,10 +34,18 @@ namespace DataFlowKit.DbMigrator.Common
         {
             if (!string.IsNullOrEmpty(providerName))
             {
+                if(providerName.ToLower().Equals(MigrationProviderTypes.MySql))
+                {
+                    CurrentCallInfo.MigrationProvider = MigrationProviderTypes.MySql;
+                }
                 return providerName;
             }
             if (!string.IsNullOrEmpty(_configuration["DapperMigrator:ProviderName"]))
             {
+                if (_configuration["DapperMigrator:ProviderName"].ToLower().Equals(MigrationProviderTypes.MySql))
+                {
+                    CurrentCallInfo.MigrationProvider = MigrationProviderTypes.MySql;
+                }
                 return _configuration["DapperMigrator:ProviderName"];
             }
             return "sqlserver";
