@@ -5,6 +5,8 @@ using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.Common;
 using MySql.Data.MySqlClient;
 using ZstdSharp.Unsafe;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace DataFlowKit.DbMigrator.MySql
 {
@@ -32,7 +34,7 @@ namespace DataFlowKit.DbMigrator.MySql
                     }
                     else
                     {
-                        relativePathOfEntityFolder = outputPath;
+                        relativePathOfEntityFolder = Path.GetRelativePath(Directory.GetCurrentDirectory(), outputPath);
                     }
                 }
                 var classCode = GenerateClassFile(storedProcName, parameters, resultSets, namingConvention, relativePathOfEntityFolder, useNestedModels, generateXmlComments);
@@ -58,7 +60,7 @@ namespace DataFlowKit.DbMigrator.MySql
 
             var parts = name.Split(new[] { '_', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             return string.Join("", parts.Select(p =>
-                p.Length > 0 ? char.ToUpper(p[0]) + p.Substring(1).ToLower() : ""));
+                p.Length > 0 ? char.ToUpper(p[0]) + p.Substring(1) : ""));
         }
 
         private IEnumerable<ParameterInfo> GetStoredProcParameters(string storedProcName)
@@ -177,7 +179,7 @@ namespace DataFlowKit.DbMigrator.MySql
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine();
-            sb.AppendLine($"namespace {nameSpaceName.Replace('/', '.')}");
+            sb.AppendLine($"namespace {Regex.Replace(nameSpaceName, @"[\\/]+", ".")}");
             sb.AppendLine("{");
 
             // Request Model

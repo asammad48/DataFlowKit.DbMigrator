@@ -69,14 +69,14 @@ namespace DataFlowKit.DbMigrator.Common
             {
                 string fileName = Path.GetFileName(filePath);
 
-                if (File.Exists(fileName))
+                if (File.Exists(filePath))
                 {
                     Console.WriteLine($"File '{fileName}' already exists. Do you want to overwrite it? (y/n):");
                     string input = Console.ReadLine()?.Trim().ToLower();
 
                     if (input == "y")
                     {
-                        File.WriteAllText(fileName, classCode);
+                        File.WriteAllText(filePath, classCode);
                         Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: File overwritten successfully at path {filePath}.");
                     }
                     else
@@ -86,7 +86,7 @@ namespace DataFlowKit.DbMigrator.Common
                 }
                 else
                 {
-                    File.WriteAllText(fileName, classCode);
+                    File.WriteAllText(filePath, classCode);
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: File created successfully at path {filePath}.");
                 }
             }

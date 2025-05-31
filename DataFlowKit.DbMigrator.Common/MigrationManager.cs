@@ -31,7 +31,14 @@ namespace DataFlowKit.DbMigrator.Common
                 .ToList();
             if (pendingScripts.Count > 0)
             {
-                await _provider.ValidateScriptsAsync(pendingScripts);
+                if (CurrentCallInfo.MigrationProvider.Equals(MigrationProviderTypes.MySql))
+                {
+                    _provider.ValidateScriptsAsync(allScripts).GetAwaiter().GetResult();
+                }
+                else
+                {
+                    _provider.ValidateScriptsAsync(pendingScripts).GetAwaiter().GetResult();
+                }
                 await _provider.ApplyMigrationsAsync(pendingScripts);
                 await _provider.UpdateMigrationRecordsAsync(pendingScripts);
                 return;
@@ -56,7 +63,14 @@ namespace DataFlowKit.DbMigrator.Common
                 .ToList();
             if (pendingScripts.Count > 0)
             {
-                _provider.ValidateScriptsAsync(pendingScripts).GetAwaiter().GetResult();
+                if (CurrentCallInfo.MigrationProvider.Equals(MigrationProviderTypes.MySql))
+                {
+                    _provider.ValidateScriptsAsync(allScripts).GetAwaiter().GetResult();
+                }
+                else
+                {
+                    _provider.ValidateScriptsAsync(pendingScripts).GetAwaiter().GetResult();
+                }
                 return;
             }
             Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: No Pending Migration Script found.");
