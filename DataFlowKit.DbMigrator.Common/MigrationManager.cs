@@ -63,6 +63,26 @@ namespace DataFlowKit.DbMigrator.Common
             return;
         }
 
+
+        public async Task<int> GetPendingMigrationsCount(List<MigrationScript> allScripts)
+        {
+            if (allScripts == null || allScripts.Count == 0)
+                return 0;
+
+            await _provider.EnsureMigrationTableExistsAsync();
+
+            var appliedMigrations = await _provider.GetAppliedMigrationsAsync();
+            var appliedSet = new HashSet<string>(appliedMigrations.Select(m => m.FileName));
+
+            var pendingScripts = allScripts
+                .Where(s => !appliedSet.Contains(s.FileName)) // skip already applied
+                .Where(ShouldRunInEnvironment)
+                .OrderBy(s => s.FileName)
+                .ToList();
+
+            return pendingScripts.Count;
+        }
+
         public async Task RemoveMigrationAsync(string filePath)
         {
             await _provider.EnsureMigrationTableExistsAsync();

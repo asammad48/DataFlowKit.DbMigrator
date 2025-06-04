@@ -14,6 +14,8 @@
         public const string ValidateScript = "Validate-Script";
         public const string UpdateDatabase = "Update-Database";
         public const string GenerateStoredProcedureModel = "sp-model-gen";
+        public const string MarkMigrationAsApplied = "Mark-Migration-As-Applied";
+        public const string ImportStoredProcedure = "import-sp";
     }
 
 

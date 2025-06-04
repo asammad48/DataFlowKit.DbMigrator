@@ -120,7 +120,7 @@ namespace DataFlowKit.DbMigrator.MySql
                 new { fileName, ScriptHash = gitHash });
         }
 
-        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isSeed, string? folderPath = null)
+        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isMigrationAlreadyApplied, string? folderPath = null)
         {
             var folder = folderPath ?? "Migrations";
             Directory.CreateDirectory(folder);
@@ -137,7 +137,7 @@ namespace DataFlowKit.DbMigrator.MySql
             var orderPrefix = nextOrder.ToString("D8");
             var safeName = string.Join("_", migrationName.Split(Path.GetInvalidFileNameChars(), StringSplitOptions.RemoveEmptyEntries));
             var fileName = $"{orderPrefix}_{safeName}_{environmentName}.sql";
-            var purposeOfFile = isSeed ? "DML" : "DDL";
+            var purposeOfFile = isMigrationAlreadyApplied ? "MigrationAlreadyApplied" : "";
             var fullPath = Path.Combine(folder, fileName);
             var sql = $@"/*
 ============================================================
