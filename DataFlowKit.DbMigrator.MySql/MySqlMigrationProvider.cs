@@ -120,7 +120,7 @@ namespace DataFlowKit.DbMigrator.MySql
                 new { fileName, ScriptHash = gitHash });
         }
 
-        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isMigrationAlreadyApplied, string? folderPath = null)
+        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isMigrationAlreadyApplied, string appendedText, string? folderPath = null)
         {
             var folder = folderPath ?? "Migrations";
             Directory.CreateDirectory(folder);
@@ -148,7 +148,10 @@ namespace DataFlowKit.DbMigrator.MySql
  Environment : {environmentName}
 ============================================================
 */";
-
+            if (!string.IsNullOrEmpty(appendedText))
+            {
+                sql += ($"\r\n\r\n{appendedText}\r\n");
+            }
             if (!File.Exists(fullPath))
             {
                 await File.WriteAllTextAsync(fullPath, sql);
@@ -159,5 +162,17 @@ namespace DataFlowKit.DbMigrator.MySql
         {
             new StoredProcAnalyzer(_connectionString).GenerateClassesFromStoredProc(storedProcedureModel.StoredProcedureName, storedProcedureModel.OutputDirectory, storedProcedureModel.NamingConvention, storedProcedureModel.UseNestedModels, storedProcedureModel.GenerateXMLComments);
         }
+
+        public async Task<string?> GetStoredProcedureText(string procedureName)
+        {
+            using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            var sql = $"SHOW CREATE PROCEDURE `{procedureName}`;";
+
+            var result = await connection.QueryFirstOrDefaultAsync<dynamic>(sql);
+            return result?["Create Procedure"] as string;
+        }
+
     }
 }

@@ -22,7 +22,7 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                     opts.MigrationPath = DefaultValueProvider.GetMigrationPath(opts.MigrationPath, true);
                     opts.Provider = DefaultValueProvider.GetProviderName(opts.Provider);
                     var provider = MigrationProviderFactory.Create(opts.Provider, "");
-                    provider.AddMigrationAsync(opts.MigrationName, opts.Environment, opts.IsSeed, opts.MigrationPath).GetAwaiter().GetResult();
+                    provider.AddMigrationAsync(opts.MigrationName, opts.Environment, opts.IsSeed, "", opts.MigrationPath).GetAwaiter().GetResult();
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully.");
                 }
                 catch (Exception ex)

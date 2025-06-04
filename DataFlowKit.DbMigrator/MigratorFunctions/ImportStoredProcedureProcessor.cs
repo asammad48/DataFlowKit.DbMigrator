@@ -30,16 +30,37 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
                     var pendingMigrations = GetPendingMigrationCount(opts, provider).GetAwaiter().GetResult();
                     if (pendingMigrations > 0)
                     {
-
+                        var pendingMigrationResponse = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: {pendingMigrations} migration(s) are pending. Would you like to apply them now? (yes/no)");
+                        if (pendingMigrationResponse?.ToLower() != "yes")
+                        {
+                            Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process aborted by user.");
+                            return 0;
+                        }
+                        //var manager = new MigrationManager(provider, opts.Environment);
+                        //var scripts = ScriptLoader.LoadScripts(opts.MigrationPath);
+                        //manager.UpdateDatabaseAsync(scripts).GetAwaiter().GetResult();
+                        UpdateDatabase(opts, provider).GetAwaiter().GetResult();
                     }
-                    //provider.GenerateClassesFromStoredProc(new GenerateStoredProcedureAnalyser()
-                    //{
-                    //    GenerateXMLComments = opts.GenerateXMLComments,
-                    //    NamingConvention = opts.NamingConvention,
-                    //    OutputDirectory = opts.OutputDirectory,
-                    //    StoredProcedureName = opts.ProcedureName,
-                    //    UseNestedModels = opts.UseNestedModels
-                    //});
+                    var storedProcedureText = provider.GetStoredProcedureText(opts.ProcedureName).GetAwaiter().GetResult();
+                    provider.AddMigrationAsync(opts.MigrationName, opts.Environment, false, storedProcedureText, opts.MigrationPath).GetAwaiter().GetResult();
+                    UpdateDatabase(opts, provider).GetAwaiter().GetResult();
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Stored procedure '{opts.ProcedureName}' has been successfully imported as migration '{opts.MigrationName}' in the '{opts.Environment}' environment.");
+                    var spModelGenResponse = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Would you like to generate the request and response models as well? (yes/no)");
+                    if (spModelGenResponse?.ToLower() != "yes")
+                    {
+                        Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully without generating models.");
+                        return 0;
+                    }
+                    var spGenResponse = GetStoredProcedureGenParamters();
+                    provider.GenerateClassesFromStoredProc(new GenerateStoredProcedureAnalyser()
+                    {
+                        GenerateXMLComments = spGenResponse.genXmlComments,
+                        NamingConvention = spGenResponse.namingConvention,
+                        OutputDirectory = spGenResponse.outputPath,
+                        StoredProcedureName = opts.ProcedureName,
+                        UseNestedModels = spGenResponse.isNestedModel
+                    });
+                    Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully. Stored Procedure Models have been generated.");
                     Console.WriteLine($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Process completed successfully.");
                 }
                 catch (Exception ex)
@@ -58,6 +79,43 @@ namespace DataFlowKit.DbMigrator.MigratorFunctions
             var scripts = ScriptLoader.LoadScripts(importStored.MigrationPath);
             var totalCount = manager.GetPendingMigrationsCount(scripts).GetAwaiter().GetResult();
             return totalCount;
+        }
+        private static string userDecisions(string message)
+        {
+            Console.WriteLine(message);
+            return Console.ReadLine();
+        }
+
+        private static async Task UpdateDatabase(ImportStoredProcedure importStored, IMigrationProvider provider)
+        {
+            var manager = new MigrationManager(provider, importStored.Environment);
+            var scripts = ScriptLoader.LoadScripts(importStored.MigrationPath);
+            manager.UpdateDatabaseAsync(scripts).GetAwaiter().GetResult();
+        }
+        private static (bool genXmlComments, bool isNestedModel, string outputPath, string namingConvention) GetStoredProcedureGenParamters()
+        {
+            (bool genXmlComments, bool isNestedModel, string outputPath, string namingConvention) tupleResult = default;
+
+            var outputPathResponse = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Would you like to provide the EntityFolder path manually? If not, press Enter to use the default from AppSettings.");
+            tupleResult.outputPath = DefaultValueProvider.GetStoredProcedureModelPath(outputPathResponse, true);
+
+            var genXmlComments = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Would you like to include XML comments in the Request and Response Models of the Stored Procedure? (yes/no)");
+            if (genXmlComments?.ToLower() == "yes")
+            {
+                tupleResult.genXmlComments = true;
+            }
+
+            var isNestedModel = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Would you like to generate a Nested Response Model for the Stored Procedure? (yes/no)");
+            if (isNestedModel?.ToLower() == "yes")
+            {
+                tupleResult.isNestedModel = true;
+            }
+
+            var namingConvetion = userDecisions($"[{DateTime.Now}] {CurrentCallInfo.ScriptName}: Would you like to specify a custom naming convention for the Stored Procedure Model? If not, press Enter to use the one from AppSettings.");
+            tupleResult.namingConvention = DefaultValueProvider.GetSpNamingConvention(namingConvetion);
+
+            return tupleResult;
+
         }
     }
 }

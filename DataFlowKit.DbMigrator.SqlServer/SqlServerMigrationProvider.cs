@@ -174,7 +174,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
         }
 
 
-        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isSeed, string? folderPath = null)
+        public async Task AddMigrationAsync(string migrationName, string environmentName, bool isSeed, string appendedText, string? folderPath = null)
         {
             try
             {
@@ -216,7 +216,10 @@ namespace DataFlowKit.DbMigrator.SqlServer
 ============================================================
 */
                              ";
-
+                if (!string.IsNullOrEmpty(appendedText))
+                {
+                    sql += ($"\r\n\r\n{appendedText}\r\n");
+                }
                 if (!File.Exists(fullPath))
                 {
                     await File.WriteAllTextAsync(fullPath, sql);
@@ -234,6 +237,23 @@ namespace DataFlowKit.DbMigrator.SqlServer
         {
             new StoredProcAnalyzer(connectionString: _connectionString).GenerateClassesFromStoredProc(storedProcedureModel.StoredProcedureName, storedProcedureModel.OutputDirectory, storedProcedureModel.NamingConvention, storedProcedureModel.UseNestedModels, storedProcedureModel.GenerateXMLComments);
         }
+
+        public async Task<string?> GetStoredProcedureText(string procedureName)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            var sql = @"
+        SELECT m.definition
+        FROM sys.sql_modules m
+        JOIN sys.objects o ON m.object_id = o.object_id
+        WHERE o.type = 'P'
+          AND o.name = @ProcedureName";
+
+            var result = await connection.QueryFirstOrDefaultAsync<string>(sql, new { ProcedureName = procedureName });
+            return result;
+        }
+
     }
 
 }
