@@ -4,10 +4,9 @@ using DataFlowKit.DbMigrator.Common.Models;
 using DataFlowKit.DbMigrator.SqlServer.Models;
 using DataFlowKit.DbMigrator.SqlServer.TypesConverter;
 using Microsoft.Data.SqlClient;
-using Newtonsoft.Json;
 using System.Data;
 using System.Text;
-using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace DataFlowKit.DbMigrator.SqlServer
 {
@@ -37,7 +36,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
                     }
                     else
                     {
-                        relativePathOfEntityFolder = outputPath;
+                        relativePathOfEntityFolder = Path.GetRelativePath(Directory.GetCurrentDirectory(), outputPath);
                     }
                 }
                 var classCode = GenerateClassFile(storedProcName, parameters, resultSets, relativePathOfEntityFolder, useNestedModels, generateXmlComments);
@@ -53,7 +52,9 @@ namespace DataFlowKit.DbMigrator.SqlServer
 
         private string SanitizeName(string name)
         {
-            return new string(name.Where(c => char.IsLetterOrDigit(c)).ToArray());
+            if (string.IsNullOrEmpty(name)) return name;
+            var parts = name.Split(new[] { '_', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            return string.Join("", parts.Select(p => p.Length > 0 ? char.ToUpper(p[0]) + p.Substring(1) : ""));
         }
 
         private string GetStoredProcDefinition(string storedProcName)
@@ -200,7 +201,7 @@ namespace DataFlowKit.DbMigrator.SqlServer
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
             sb.AppendLine();
-            sb.AppendLine($"namespace {relativePathOfEntityFolder.Replace('/', '.')}");
+            sb.AppendLine($"namespace {Regex.Replace(relativePathOfEntityFolder, @"[\\/]+", ".")}");
             sb.AppendLine("{");
 
             // Check if we need to generate request class (has input parameters)

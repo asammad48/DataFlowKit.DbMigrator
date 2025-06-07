@@ -6,6 +6,7 @@
         public static bool IsCallFromCLI = false;
         public static string StartupProject = "";
         public static bool IsEntityDirectoryRelativePath = false;
+        public static string MigrationProvider = MigrationProviderTypes.SqlServer;
     }
 
     public static class RunningScriptType
@@ -14,6 +15,11 @@
         public const string ValidateScript = "Validate-Script";
         public const string UpdateDatabase = "Update-Database";
         public const string GenerateStoredProcedureModel = "sp-model-gen";
+    }
+    public static class MigrationProviderTypes
+    {
+        public const string MySql ="mysql";
+        public const string SqlServer = "sqlserver";
     }
 
 
